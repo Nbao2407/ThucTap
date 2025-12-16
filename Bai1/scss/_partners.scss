@@ -1,0 +1,65 @@
+// ==========================================
+// Partners Section
+// ==========================================
+
+.partners {
+    padding: $spacing-16 $spacing-6;
+    background-color: $color-black;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    
+    @include respond-to(md) {
+        padding: $spacing-20 $spacing-6;
+    }
+    
+    &__container {
+        @include container;
+        text-align: center;
+    }
+    
+    &__title {
+        font-size: $font-size-sm;
+        color: $color-gray-400;
+        margin-bottom: $spacing-8;
+        
+        @include respond-to(md) {
+            font-size: $font-size-base;
+            margin-bottom: $spacing-12;
+        }
+    }
+    
+    &__logos {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: $spacing-8;
+        
+        @include respond-to(md) {
+            gap: $spacing-12;
+        }
+        
+        @include respond-to(lg) {
+            gap: $spacing-16;
+        }
+    }
+    
+    &__logo {
+        flex: 0 0 auto;
+        opacity: 0.6;
+        transition: $transition-base;
+        
+        &:hover {
+            opacity: 1;
+        }
+    }
+    
+    &__logo-img {
+        height: 24px;
+        width: auto;
+        filter: brightness(0) invert(1);
+        
+        @include respond-to(md) {
+            height: 32px;
+        }
+    }
+}

@@ -1,0 +1,141 @@
+// ==========================================
+// Footer Section
+// ==========================================
+
+.footer {
+    background-color: $color-gray-900;
+    padding: $spacing-16 $spacing-6 $spacing-8;
+    border-top: 1px solid rgba($color-white, 0.1);
+    
+    @include respond-to(md) {
+        padding: $spacing-20 $spacing-6 $spacing-10;
+    }
+    
+    &__container {
+        @include container;
+    }
+    
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: $spacing-12;
+        margin-bottom: $spacing-12;
+        
+        @include respond-to(md) {
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: $spacing-16;
+        }
+        
+        @include respond-to(lg) {
+            gap: $spacing-20;
+        }
+    }
+    
+    &__brand {
+        max-width: 400px;
+    }
+    
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: $spacing-6;
+        color: $color-white;
+        
+        &-icon {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+        }
+        
+        &-text {
+            font-size: $font-size-2xl;
+            font-weight: 600;
+            line-height: 1;
+        }
+    }
+    
+    &__description {
+        font-size: $font-size-sm;
+        line-height: $line-height-relaxed;
+        color: $color-gray-400;
+    }
+    
+    &__column {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__title {
+        font-size: $font-size-lg;
+        font-weight: 600;
+        color: $color-white;
+        margin-bottom: $spacing-4;
+    }
+    
+    &__links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-3;
+    }
+    
+    &__link {
+        font-size: $font-size-sm;
+        color: $color-gray-400;
+        transition: $transition-base;
+        
+        &:hover {
+            color: $color-white;
+        }
+    }
+    
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;
+        padding-top: $spacing-8;
+        border-top: 1px solid rgba($color-white, 0.1);
+        align-items: center;
+        
+        @include respond-to(md) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+    
+    &__copyright {
+        font-size: $font-size-sm;
+        color: $color-gray-400;
+    }
+    
+    &__social {
+        display: flex;
+        gap: $spacing-4;
+    }
+    
+    &__social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba($color-white, 0.05);
+        color: $color-gray-400;
+        transition: $transition-base;
+        
+        &:hover {
+            background-color: rgba($color-white, 0.1);
+            color: $color-white;
+            transform: translateY(-2px);
+        }
+        
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

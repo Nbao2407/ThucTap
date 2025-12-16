@@ -1,0 +1,76 @@
+// ==========================================
+// Button Component
+// ==========================================
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-2;
+    white-space: nowrap;
+    border-radius: $radius-md;
+    font-weight: 500;
+    transition: $transition-base;
+    border: none;
+    cursor: pointer;
+    
+    &:focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 0.5);
+        outline-offset: 2px;
+    }
+    
+    &:disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+    
+    // Variants
+    &--primary {
+        background-color: $color-white;
+        color: $color-black;
+        
+        &:hover {
+            background-color: $color-gray-300;
+        }
+    }
+    
+    &--ghost {
+        background-color: transparent;
+        color: $color-white;
+        
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+    
+    &--gradient {
+        background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+        color: $color-black;
+        border-radius: $radius-lg;
+        
+        &:hover {
+            transform: scale(1.05);
+        }
+        
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+    
+    // Sizes
+    &--sm {
+        height: 40px;
+        padding: 0 $spacing-5;
+        font-size: $font-size-sm;
+    }
+    
+    &--lg {
+        height: 48px;
+        padding: 0 $spacing-8;
+        font-size: $font-size-base;
+    }
+    
+    &--full {
+        width: 100%;
+    }
+}

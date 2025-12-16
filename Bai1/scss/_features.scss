@@ -1,0 +1,157 @@
+// ==========================================
+// Features Section
+// ==========================================
+
+.features {
+    padding: $spacing-16 0;
+    
+    @include respond-to(md) {
+        padding: $spacing-24 0;
+    }
+    
+    &__container {
+        @include container;
+        max-width: 80rem;
+    }
+    
+    &__header {
+        text-align: center;
+        margin-bottom: $spacing-8;
+        
+        @include respond-to(md) {
+            margin-bottom: $spacing-16;
+        }
+    }
+    
+    &__title {
+        font-size: $font-size-4xl;
+        font-weight: 600;
+        line-height: $line-height-tight;
+        color: $color-white;
+        margin-bottom: $spacing-4;
+        
+        @include respond-to(lg) {
+            font-size: $font-size-5xl;
+        }
+    }
+    
+    &__subtitle {
+        font-size: $font-size-base;
+        color: $color-gray-400;
+        margin-top: $spacing-4;
+    }
+    
+    &__grid {
+        display: grid;
+        gap: $spacing-6;
+        max-width: 32rem;
+        margin: 0 auto;
+        
+        @include respond-to(md) {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: none;
+            
+            & > :last-child:nth-child(odd) {
+                grid-column: 1 / -1;
+                justify-self: center;
+                width: calc(50% - #{$spacing-6} / 2);
+            }
+        }
+        
+        @include respond-to(lg) {
+            grid-template-columns: repeat(3, 1fr);
+
+            & > :last-child:nth-child(odd) {
+                grid-column: auto;
+                justify-self: auto;
+                width: auto;
+            }
+        }
+    }
+}
+
+// Feature Card Element
+.feature-card {
+    background-color: $color-gray-800;
+    border-radius: $radius-lg;
+    padding: 0;
+    text-align: center;
+    border: none;
+    box-shadow: none;
+    transition: $transition-base;
+    
+    &:hover {
+        transform: translateY(-2px);
+    }
+    
+    &__header {
+        padding: $spacing-6;
+        padding-bottom: $spacing-3;
+    }
+    
+    &__decorator {
+        position: relative;
+        width: 9rem;
+        height: 9rem;
+        margin: 0 auto;
+        -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%);
+        mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%);
+    }
+    
+    &__grid-pattern {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 24px 24px;
+        opacity: 0.5;
+        
+        .body--dark & {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        }
+    }
+    
+    &__icon-wrapper {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        background-color: $color-black;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        
+        .body--dark & {
+            background-color: $color-black;
+        }
+    }
+    
+    &__icon {
+        width: 24px;
+        height: 24px;
+        color: $color-white;
+    }
+    
+    &__title {
+        margin-top: $spacing-6;
+        font-size: $font-size-base;
+        font-weight: 500;
+        color: $color-white;
+    }
+    
+    &__content {
+        padding: 0 $spacing-6 $spacing-6;
+    }
+    
+    &__description {
+        font-size: $font-size-sm;
+        color: $color-gray-400;
+        line-height: $line-height-relaxed;
+    }
+}
