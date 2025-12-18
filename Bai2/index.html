@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Quản lý công việc hiệu quả">
+    <meta name="keywords" content="todo list, tags, task management">
+    <meta name="author" content="Todo List">
+    <meta name="robots" content="index, follow">
+    
+    <title>Todo List</title>
+    
+    <script src="js/lucide.js"></script>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <main class="app">
+        <!-- Header Section -->
+        <header class="app__header">
+            <div class="app__logo-container">
+                <i data-lucide="list-checks" class="app__logo-icon"></i>
+            </div>
+            <h1 class="app__title">To do list</h1>
+        </header>
+
+        <!-- Status Tabs (Tất cả, Đang làm, Hoàn thành) -->
+        <nav class="status-tabs">
+            <button class="status-tabs__item status-tabs__item--active" data-status="all">
+                Tất cả <span class="status-tabs__count" id="countAll">0</span>
+            </button>
+            <button class="status-tabs__item" data-status="active">
+                Đang làm <span class="status-tabs__count" id="countActive">0</span>
+            </button>
+            <button class="status-tabs__item" data-status="completed">
+                Hoàn thành <span class="status-tabs__count" id="countCompleted">0</span>
+            </button>
+        </nav>
+
+        <!-- Add Task Section -->
+        <section class="todo-form">
+            <form class="todo-form__container" id="todoForm">
+                <div class="todo-form__input-wrapper">
+                    <input 
+                        type="text" 
+                        class="todo-form__input" 
+                        id="todoInput"
+                        placeholder="Cần làm gì?"
+                        aria-label="Nhập công việc mới"
+                        autocomplete="off"
+                    />
+                    <div class="todo-form__actions">
+                        <button type="button" class="todo-form__tag-trigger" id="tagTrigger" aria-label="Chọn thẻ">
+                            <i data-lucide="tag" class="icon-sm"></i>
+                        </button>
+                        <button 
+                            type="submit" 
+                            class="todo-form__button"
+                            aria-label="Thêm công việc"
+                        >
+                            <i data-lucide="plus" class="icon-sm"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Hidden Tag Selection Menu -->
+                <div class="tag-menu hidden" id="tagMenu">
+                    <div class="tag-menu__section">
+                        <div class="tag-menu__header">Chọn thẻ</div>
+                        <div class="tag-menu__list" id="tagSelectionList">
+                        </div>
+                    </div>
+                    
+                    <div class="tag-menu__separator"></div>
+
+                    <div class="tag-menu__section">
+                        <div class="tag-menu__header">Tạo thẻ mới</div>
+                        <div class="tag-creation">
+                            <div class="tag-creation__input-group">
+                                <input type="text" class="tag-creation__input" id="newTagName" placeholder="Tên thẻ" autocomplete="off">
+                                <button type="button" class="tag-creation__add-btn" id="addNewTagBtn">Thêm</button>
+                            </div>
+                            <div class="tag-creation__colors" id="tagColorPicker">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="selected-tags mb-3" id="selectedTagsContainer">
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <div class="filter-bar">
+            <div class="filter-bar__left">
+                <span class="filter-bar__label">Lọc:</span>
+                <div class="filter-bar__tags" id="filterTags">
+                    <button class="filter-tag filter-tag--active" data-tag="all">Tất cả</button>
+                </div>
+            </div>
+        </div>
+        <!-- Todo List Section -->
+        <section class="todo-list" aria-label="Danh sách công việc">
+            <ul class="todo-list__items" id="todoList">
+            </ul>
+            <div class="todo-list__empty hidden" id="emptyState">
+                <p class="todo-list__empty-text">Không tìm thấy công việc nào</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+    
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

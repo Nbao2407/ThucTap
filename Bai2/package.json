@@ -1,0 +1,26 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "Todo List với ES6+",
+  "main": "js/app.js",
+  "scripts": {
+    "sass": "sass styles.scss css/styles.css",
+    "sass:watch": "sass --watch styles.scss:css/styles.css",
+    "sass:input-tags": "sass input-tags.scss css/input-tags.css",
+    "sass:all": "sass styles.scss css/styles.css && sass input-tags.scss css/input-tags.css",
+    "start": "sass --watch styles.scss:css/styles.css"
+  },
+  "keywords": [
+    "todo",
+    "javascript",
+    "es6",
+    "sass",
+    "scss",
+    "responsive"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}

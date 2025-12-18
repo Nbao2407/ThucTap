@@ -1,0 +1,67 @@
+// ==========================================
+// MIXINS
+// ==========================================
+
+@use 'sass:color';
+@use 'variables' as *;
+
+// Flexbox Mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// Transition Mixin
+@mixin transition($property: all) {
+    transition: $property 0.3s ease;
+}
+
+// Box Shadow Mixin
+@mixin box-shadow {
+    box-shadow: 0 1px 3px 0 $color-shadow, 0 1px 2px -1px $color-shadow;
+}
+
+// Hover Lift Effect
+@mixin hover-lift {
+    @include transition(transform);
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+// Responsive Mixin
+@mixin responsive($breakpoint) {
+    @if $breakpoint == mobile {
+        @media (max-width: $breakpoint-mobile) {
+            @content;
+        }
+    } @else if $breakpoint == tablet {
+        @media (max-width: $breakpoint-tablet) {
+            @content;
+        }
+    } @else if $breakpoint == desktop {
+        @media (min-width: $breakpoint-desktop) {
+            @content;
+        }
+    }
+}
+
+// Button Hover Mixin
+@mixin button-hover($base-color) {
+    @include transition(background);
+    
+    &:hover {
+        background: color.adjust($base-color, $lightness: -10%);
+    }
+    
+    &:active {
+        transform: scale(0.98);
+    }
+}

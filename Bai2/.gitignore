@@ -1,0 +1,16 @@
+node_modules/
+
+# Compiled CSS
+css/*.css
+css/*.css.map
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+*.log
+npm-debug.log*

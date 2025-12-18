@@ -1,0 +1,219 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.todo-form {
+    margin-bottom: $spacing-xl;
+
+    &__container {
+        position: relative;
+    }
+
+    &__input-wrapper {
+        display: flex;
+        align-items: center;
+        background: $color-bg;
+        border: 1px solid $color-border;
+        border-radius: $radius-sm;
+        padding: $spacing-sm;
+        box-shadow: 0 2px 4px rgba(00,00,00,0.02);
+        
+        &:focus-within {
+            border-color: $color-text-light;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+    }
+
+    &__input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        padding: $spacing-xs $spacing-sm;
+        color: $color-text;
+
+        &::placeholder {
+            color: $color-text-light;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+    }
+
+    &__tag-trigger {
+        padding: $spacing-xs;
+        color: $color-text-secondary;
+        border-radius: $radius-sm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $color-border;
+
+        &:hover {
+            background: $color-bg-hover;
+            color: $color-text;
+        }
+    }
+
+    &__button {
+        background: #999999; // as per design seems greyish or primary
+        color: $color-white;
+        padding: 6px 16px;
+        border-radius: $radius-sm;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        transition: background 0.2s;
+
+        &:hover {
+            background: darken(#999999, 10%);
+        }
+    }
+}
+
+// Tag Selection Menu
+// Tag Selection Menu
+.tag-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background: $color-bg;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    box-shadow: $color-shadow;
+    width: 280px; // Wider for the new layout
+    z-index: 100;
+    overflow: hidden;
+    padding: $spacing-sm;
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xs;
+    }
+
+    &__header {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: $color-text;
+        padding: 0 $spacing-xs;
+        margin-bottom: 4px;
+    }
+
+    &__separator {
+        height: 1px;
+        background: $color-border;
+        margin: $spacing-md 0;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 0 $spacing-xs;
+    }
+}
+
+// Tag Option (Pills in Dropdown)
+.tag-option {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: $radius-pill;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    user-select: none;
+    
+    // Default state (unselected) - light grey pill
+    background: $color-bg-secondary;
+    color: $color-text-secondary;
+    border-color: transparent;
+
+    &:hover {
+        background: darken($color-bg-secondary, 5%);
+    }
+
+    // Selected state - colored border/bg depending on logic, or just active look
+    &--selected {
+        // We will apply specific color styles via JS or specific classes, 
+        // but generally selected implies visibility. 
+        // For now, let's say selected adds a border or shadow.
+        box-shadow: 0 0 0 1px $color-text-light inset;
+    }
+
+    // Specific tag colors handled by modifiers below or inline styles
+    &--work { background: $tag-work-bg; color: $tag-work-text; border-color: $tag-work-text; }
+    &--personal { background: $tag-personal-bg; color: $tag-personal-text; border-color: $tag-personal-text; }
+    &--urgent { background: $tag-urgent-bg; color: $tag-urgent-text; border-color: $tag-urgent-text; }
+}
+
+
+// Creation Section
+.tag-creation {
+    padding: 0 $spacing-xs;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    &__input-group {
+        display: flex;
+        gap: $spacing-xs;
+    }
+
+    &__input {
+        flex: 1;
+        border: 1px solid $color-border;
+        border-radius: $radius-sm;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+        outline: none;
+        
+        &:focus {
+            border-color: $color-text-light;
+        }
+    }
+
+    &__add-btn {
+        background: #888888;
+        color: white;
+        border-radius: $radius-sm;
+        padding: 0 12px;
+        font-size: 0.8rem;
+        transition: background 0.2s;
+
+        &:hover {
+            background: darken(#888888, 10%);
+        }
+    }
+
+    &__colors {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}
+
+.color-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 2px solid transparent;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &--selected {
+        border-color: $color-text; // highlight selected color
+        transform: scale(1.1);
+    }
+}

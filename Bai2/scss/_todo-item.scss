@@ -1,0 +1,195 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.todo-item {
+    display: flex;
+    align-items: flex-start; // Align to top
+    gap: $spacing-md;
+    padding: $spacing-md; // More padding like a card or spacious row
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    margin-bottom: $spacing-sm;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    
+    &:hover {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        border-color: $color-border-hover;
+        
+        .todo-item__actions {
+            opacity: 1;
+        }
+    }
+
+    &--completed {
+        background: #f8f9fa;
+        
+        .todo-item__text {
+            color: $color-text-secondary; // lighter
+            // Text decoration is handled inside text-wrapper usually or here
+        }
+    }
+    
+    // Custom Radio
+    .custom-radio {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        cursor: pointer;
+        margin-top: 2px; // optical alignment
+
+        input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            
+            &:checked + .radio-mark {
+                border-color: #22c55e; // Green success
+                background: #22c55e;
+                
+                 &::after {
+                    display: block; // Show check
+                 }
+            }
+        }
+
+        .radio-mark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid $color-border-hover;
+            border-radius: 50%;
+            background: transparent;
+            
+            &::after {
+                content: '';
+                display: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 10px;
+                height: 10px;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    &__content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    &__text-wrapper {
+        display: flex;
+        align-items: center;
+        min-height: 24px;
+    }
+
+    &__text {
+        font-size: 1rem;
+        color: $color-text;
+    }
+
+    &__edit-input {
+        width: 100%;
+        border: 1px solid $color-primary;
+        padding: 4px 8px;
+        border-radius: $radius-sm;
+        font-size: 1rem;
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-xs;
+    }
+
+    &__actions {
+        display: flex;
+        gap: $spacing-xs;
+        opacity: 0; // Hide by default
+        transition: opacity 0.2s;
+        
+        .action-btn {
+            padding: 4px 8px;
+            border-radius: $radius-sm;
+            border: 1px solid $color-border;
+            font-size: 0.75rem;
+            color: $color-text-secondary;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            
+            &:hover {
+                background: $color-bg-hover;
+                color: $color-text;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            opacity: 1; // Always show on mobile
+        }
+    }
+}
+
+.tag-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: $radius-pill;
+    font-size: 0.75rem;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    
+    &--work { background: $tag-work-bg; color: $tag-work-text; border-color: transparent; }
+    &--personal { background: $tag-personal-bg; color: $tag-personal-text; border-color: transparent; }
+    &--urgent { background: $tag-urgent-bg; color: $tag-urgent-text; border-color: transparent; }
+    &--default { background: $color-bg-secondary; color: $color-text-secondary; }
+    
+    // Remove button inside badge
+    .tag-remove-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.2s, background 0.2s;
+        
+        &:hover {
+            opacity: 1;
+            background: rgba(0,0,0,0.1);
+        }
+    }
+}
+
+.tag-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: $radius-pill;
+    font-size: 0.75rem;
+    color: $color-text-secondary;
+    background: transparent;
+    border: 1px dashed $color-border-hover;
+    cursor: pointer;
+    transition: all 0.2s;
+    
+    &:hover {
+        background: $color-bg-hover;
+        border-color: $color-text-light;
+        color: $color-text;
+    }
+}

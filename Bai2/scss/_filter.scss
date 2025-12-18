@@ -1,0 +1,115 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Status Tabs (Top)
+.status-tabs {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-lg;
+
+    &__item {
+        padding: $spacing-xs $spacing-md;
+        border-radius: $radius-sm;
+        font-size: 0.9rem;
+        color: $color-text;
+        background: transparent;
+        border: 1px solid transparent;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+        cursor: pointer;
+
+        &:hover {
+            background: $color-bg-hover;
+        }
+
+        &--active {
+            background: #ffffff;
+            border: 1px solid $color-border;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            font-weight: 500;
+            
+            .status-tabs__count {
+                background: #f1f3f5;
+                color: $color-text;
+            }
+        }
+    }
+
+    &__count {
+        background: $color-bg-secondary;
+        padding: 1px 6px;
+        border-radius: $radius-pill;
+        font-size: 0.75rem;
+        color: $color-text-secondary;
+    }
+}
+
+// Filter Bar (Middle)
+.filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacing-md;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: $spacing-md;
+    }
+
+    &__label {
+        color: $color-text-secondary;
+        font-size: 0.9rem;
+    }
+
+    &__tags {
+        display: flex;
+        gap: $spacing-xs;
+        flex-wrap: wrap;
+    }
+
+    &__manage {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9rem;
+        color: $color-text;
+        border: 1px solid $color-border;
+        background: #ffffff;
+        padding: 4px 10px;
+        border-radius: $radius-sm;
+        transition: all 0.2s;
+        cursor: pointer;
+
+        &:hover {
+            background: $color-bg-hover;
+            border-color: $color-text-light;
+        }
+    }
+}
+
+.filter-tag {
+    padding: 4px 12px;
+    border-radius: $radius-pill;
+    font-size: 0.85rem;
+    color: $color-text;
+    background: $color-bg-secondary;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+        background: darken($color-bg-secondary, 3%);
+    }
+
+    &--active {
+        border-color: $color-border-hover;
+        background: #e9ecef;
+        font-weight: 500;
+    }
+}

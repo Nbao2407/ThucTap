@@ -161,12 +161,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const mobileLabel = document.getElementById('selected-label-mobile');
         if (mobileLabel) mobileLabel.textContent = flag;
-
-        const footerLabel = document.getElementById('selected-label-footer');
-        if (footerLabel) footerLabel.textContent = flag;
     }
     
     initLanguageSelector('language-selector', 'language-trigger', 'language-dropdown', 'selected-flag', 'selected-label');
     initLanguageSelector('language-selector-mobile', 'language-trigger-mobile', 'language-dropdown-mobile', null, 'selected-label-mobile');
-    initLanguageSelector('language-selector-footer', 'language-trigger-footer', 'language-dropdown-footer', 'selected-label-footer', null);
 });

@@ -1,0 +1,19 @@
+// 1. Configuration (Variables)
+@use 'scss/variables';
+
+// 2. Tools (Mixins & Functions)
+@use 'scss/mixins';
+
+// 3. Base Styles
+@use 'scss/base';
+
+// 4. Layout Components
+@use 'scss/app';
+
+// 5. Components
+@use 'scss/todo-form';
+@use 'scss/filter';
+@use 'scss/todo-list';
+@use 'scss/todo-item';
+// 6. Animations
+@use 'scss/animations';
