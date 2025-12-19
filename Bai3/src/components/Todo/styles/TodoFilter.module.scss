@@ -1,0 +1,27 @@
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.todo-filter {
+    display: flex;
+    gap: $spacing-xl;
+    margin: $spacing-lg 0;
+
+    &__btn {
+        font-size: 0.875rem;
+        @include btn-reset;
+        color: $color-text-muted;
+        transition: color 0.2s;
+        font-family: $font-mono;
+
+        &:hover {
+            color: $color-border-hover;
+        }
+
+        &--active {
+            color: $color-text-primary;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: default;
+        }
+    }
+}

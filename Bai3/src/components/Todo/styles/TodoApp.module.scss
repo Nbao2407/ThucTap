@@ -1,0 +1,34 @@
+@use "../../../styles/partials/variables" as *;
+
+.todo-app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 4rem $spacing-xl;
+  font-family: $font-sans;
+  color: $color-text-primary;
+
+  &__header {
+    margin-bottom: 3rem;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    text-transform: lowercase;
+    color: $color-text-primary;
+    font-family: $font-mono;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xl;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

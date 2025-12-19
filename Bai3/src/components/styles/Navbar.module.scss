@@ -1,0 +1,40 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.navbar {
+    @include flex-between;
+    padding: $spacing-lg $spacing-2xl;
+    border-bottom: 1px solid $color-border;
+    background-color: transparent;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: $color-text-primary;
+    font-family: $font-mono;
+}
+
+.links {
+    display: flex;
+    gap: $spacing-2xl;
+}
+
+.link {
+    text-decoration: none;
+    color: $color-text-secondary;
+    font-size: 0.875rem;
+    font-family: $font-mono;
+    transition: color 0.2s;
+
+    &:hover {
+        color: $color-text-primary;
+    }
+
+    &.active {
+        color: $color-text-primary;
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+}

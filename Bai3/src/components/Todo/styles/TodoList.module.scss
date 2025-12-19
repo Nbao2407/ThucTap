@@ -1,0 +1,21 @@
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.todo-list {
+    @include flex-column;
+
+    &__empty {
+        font-size: 0.875rem;
+        color: $color-text-muted;
+        padding: $spacing-lg 0;
+        font-style: italic;
+        font-family: $font-mono;
+    }
+
+    &__footer {
+        padding-top: $spacing-xl;
+        font-size: 0.75rem;
+        color: $color-text-muted;
+        font-family: $font-mono;
+    }
+}

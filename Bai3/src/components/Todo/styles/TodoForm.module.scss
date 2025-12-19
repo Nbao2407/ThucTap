@@ -1,0 +1,163 @@
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.todo-form {
+  @include flex-column;
+  gap: $spacing-md;
+
+  &__input-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid $color-border;
+    transition: border-color 0.2s;
+
+    &:focus-within {
+      border-color: $color-text-primary;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: $spacing-md 0;
+    font-size: 0.875rem;
+    color: $color-text-primary;
+    font-family: $font-mono;
+    outline: none;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+  }
+
+  &__submit {
+    @include btn-reset;
+    color: $color-text-muted;
+    padding: 0 $spacing-sm;
+    transition: color 0.2s;
+
+    &:hover:not(:disabled) {
+      color: $color-text-primary;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    align-items: center;
+  }
+
+  &__tag-wrapper {
+    position: relative;
+    
+    &:hover .todo-form__delete-tag {
+      opacity: 1;
+    }
+  }
+
+  &__tag {
+    @include btn-reset;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: $radius-full;
+    border: 1px solid $slate-600;
+    color: $color-text-secondary;
+    background: transparent;
+    transition: all 0.2s;
+    font-family: $font-mono;
+
+    &:hover {
+      border-color: $slate-300;
+      color: $slate-300;
+    }
+  }
+
+  &__delete-tag {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: $slate-700;
+    border-radius: 50%;
+    @include btn-reset;
+    background: $slate-700;           
+    padding: 1px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    color: $slate-200;
+
+    &:hover {
+      color: $color-danger;
+    }
+  }
+
+  &__add-tag-trigger {
+    font-size: 0.75rem;
+    color: $color-text-secondary;
+    @include btn-reset;
+    font-family: $font-mono;
+    
+    &:hover {
+      color: $slate-100;
+    }
+  }
+
+  &__new-tag {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__tag-input {
+    font-size: 0.75rem;
+    background: transparent;
+    border: 1px solid $slate-600;
+    color: $slate-100;
+    padding: 2px 8px;
+    border-radius: $radius-full;
+    width: 80px;
+    outline: none;
+    font-family: $font-mono;
+
+    &:focus {
+      border-color: $slate-100;
+    }
+  }
+
+  &__tag-confirm {
+    @include btn-reset;
+    color: $color-text-secondary;
+    &:hover { color: $slate-100; }
+  }
+
+  &__date {
+    background: transparent;
+    border: 1px solid $color-border;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    color: $color-text-secondary;
+    border-radius: $radius-sm;
+    outline: none;
+    font-family: $font-mono;
+    color-scheme: dark;
+    
+    &:focus {
+      border-color: $color-text-primary;
+      color: $color-text-primary;
+    }
+  }
+}
