@@ -58,7 +58,7 @@
     }
 
     &__button {
-        background: #999999; // as per design seems greyish or primary
+        background: $color-primary; 
         color: $color-white;
         padding: 6px 16px;
         border-radius: $radius-sm;
@@ -69,7 +69,7 @@
         transition: background 0.2s;
 
         &:hover {
-            background: darken(#999999, 10%);
+            background: color.adjust($color-primary, $lightness: 10%);
         }
     }
 }
@@ -180,7 +180,7 @@
     }
 
     &__add-btn {
-        background: #888888;
+        background: $color-accent;
         color: white;
         border-radius: $radius-sm;
         padding: 0 12px;

@@ -1,24 +1,41 @@
 import { DEFAULT_TAGS, AVAILABLE_COLORS, getTagColors } from './tags.js';
+import { saveData, loadData } from './utils.js';
 
 class TodoApp {
     constructor() {
-        this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-        this.availableTags = JSON.parse(localStorage.getItem('tags')) || DEFAULT_TAGS;
+        this.tasks = [];
+        this.availableTags = DEFAULT_TAGS;
         
         this.filter = 'all'; 
         this.tagFilter = 'all'; 
+        this.searchKeyword = '';
+
         this.newTaskTags = new Set();
         this.newTagColor = AVAILABLE_COLORS[4]; 
         this.editingTaskId = null;
 
         this.initElements();
         this.initListeners();
-        this.render();
+        
+        this.init();
+    }
+
+    async init() {
+        try {
+            this.tasks = await loadData('tasks') || [];
+            this.availableTags = await loadData('tags') || DEFAULT_TAGS;
+            this.render();
+            this.renderFilterTags();
+        } catch (error) {
+            console.error("Initialization failed:", error);
+            alert("Không thể tải dữ liệu. Vui lòng thử lại sau.");
+        }
     }
 
     initElements() {
         this.todoForm = document.getElementById('todoForm');
         this.todoInput = document.getElementById('todoInput');
+        this.searchInput = document.getElementById('searchInput'); 
         this.tagTrigger = document.getElementById('tagTrigger');
         this.tagMenu = document.getElementById('tagMenu');
         this.tagSelectionList = document.getElementById('tagSelectionList');
@@ -42,6 +59,11 @@ class TodoApp {
         this.todoForm.addEventListener('submit', (e) => {
             e.preventDefault();
             this.addTask();
+        });
+
+        this.searchInput.addEventListener('input', (e) => {
+            this.searchKeyword = e.target.value.toLowerCase().trim();
+            this.render();
         });
 
         this.tagTrigger.addEventListener('click', (e) => {
@@ -78,13 +100,9 @@ class TodoApp {
                 this.render();
             });
         });
-
-        this.renderFilterTags();
+        
     }
 
-    // --- Tag Management ---
-
-    // --- Tag Management ---
 
     renderTagSelection() {
         let currentTags = this.newTaskTags;
@@ -188,7 +206,7 @@ class TodoApp {
     }
 
     saveTags() {
-        localStorage.setItem('tags', JSON.stringify(this.availableTags));
+        saveData('tags', this.availableTags);
     }
 
     renderSelectedTags() {
@@ -293,7 +311,7 @@ class TodoApp {
     deleteTask(id) {
         this.tasks = this.tasks.filter(t => t.id !== id);
         this.saveTasks();
-        this.render(); // If editing this task, menu will effectively lose context, but fine.
+        this.render();
     }
 
     removeTagFromTask(taskId, tagName) {
@@ -302,7 +320,6 @@ class TodoApp {
             task.tags = task.tags.filter(t => t !== tagName);
             this.saveTasks();
             this.render();
-            // If editing this task currently, update menu
             if (this.editingTaskId === taskId) {
                 this.renderTagSelection();
             }
@@ -318,7 +335,7 @@ class TodoApp {
     }
 
     saveTasks() {
-        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+        saveData('tasks', this.tasks);
         this.updateCounts();
     }
 
@@ -328,13 +345,29 @@ class TodoApp {
         this.countCompleted.textContent = this.tasks.filter(t => t.isCompleted).length;
     }
 
+    // Loop (Vòng lặp for)
     getFilteredTasks() {
-        return this.tasks.filter(task => {
-            if (this.filter === 'active' && task.isCompleted) return false;
-            if (this.filter === 'completed' && !task.isCompleted) return false;
-            if (this.tagFilter !== 'all' && !task.tags.includes(this.tagFilter)) return false;
-            return true;
-        });
+        const filtered = [];
+        // Manual for loop to demonstrate loop structure
+        for (let i = 0; i < this.tasks.length; i++) {
+            const task = this.tasks[i];
+            let match = true;
+
+            // Status filter
+            if (this.filter === 'active' && task.isCompleted) match = false;
+            if (this.filter === 'completed' && !task.isCompleted) match = false;
+
+            // Tag filter
+            if (this.tagFilter !== 'all' && !task.tags.includes(this.tagFilter)) match = false;
+
+            // Search filter (Keyword)
+            if (this.searchKeyword && !task.text.toLowerCase().includes(this.searchKeyword)) match = false;
+
+            if (match) {
+                filtered.push(task);
+            }
+        }
+        return filtered;
     }
 
     render() {
