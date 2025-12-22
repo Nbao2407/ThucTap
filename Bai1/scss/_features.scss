@@ -1,157 +1,312 @@
-// ==========================================
-// Features Section
-// ==========================================
+@use 'variables' as *;
+@use 'mixins' as *;
 
 .features {
     padding: $spacing-16 0;
     
     @include respond-to(md) {
+        padding: $spacing-20 0;
+    }
+    
+    @include respond-to(lg) {
         padding: $spacing-24 0;
     }
     
     &__container {
         @include container;
-        max-width: 80rem;
     }
     
     &__header {
         text-align: center;
-        margin-bottom: $spacing-8;
+        margin-bottom: $spacing-12;
         
         @include respond-to(md) {
             margin-bottom: $spacing-16;
         }
+        
+        @include respond-to(lg) {
+            margin-bottom: $spacing-20;
+        }
     }
     
     &__title {
-        font-size: $font-size-4xl;
-        font-weight: 600;
-        line-height: $line-height-tight;
+        font-family: $font-primary;
+        font-size: 1.875rem;
+        font-weight: 700;
         color: $color-white;
-        margin-bottom: $spacing-4;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        
+        @include respond-to(sm) {
+            font-size: 2.25rem;
+        }
+        
+        @include respond-to(md) {
+            font-size: 2.75rem;
+        }
         
         @include respond-to(lg) {
             font-size: $font-size-5xl;
         }
     }
     
-    &__subtitle {
-        font-size: $font-size-base;
-        color: $color-gray-400;
-        margin-top: $spacing-4;
-    }
-    
     &__grid {
         display: grid;
-        gap: $spacing-6;
-        max-width: 32rem;
-        margin: 0 auto;
+        grid-template-columns: 1fr;
+        gap: $spacing-4;
+        
+        @include respond-to(sm) {
+            gap: $spacing-5;
+        }
         
         @include respond-to(md) {
             grid-template-columns: repeat(2, 1fr);
-            max-width: none;
-            
-            & > :last-child:nth-child(odd) {
-                grid-column: 1 / -1;
-                justify-self: center;
-                width: calc(50% - #{$spacing-6} / 2);
-            }
+            gap: $spacing-6;
         }
         
         @include respond-to(lg) {
-            grid-template-columns: repeat(3, 1fr);
-
-            & > :last-child:nth-child(odd) {
-                grid-column: auto;
-                justify-self: auto;
-                width: auto;
-            }
+            gap: $spacing-8;
         }
     }
 }
 
-// Feature Card Element
 .feature-card {
-    background-color: $color-gray-800;
-    border-radius: $radius-lg;
-    padding: 0;
-    text-align: center;
-    border: none;
-    box-shadow: none;
-    transition: $transition-base;
+    background-color: #1D1D1D;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: $radius-xl;
+    padding: $spacing-6;    
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+    
+    @include respond-to(md) {
+        border-radius: $radius-2xl;
+        padding: $spacing-8;
+    }
     
     &:hover {
-        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.15);
     }
     
-    &__header {
-        padding: $spacing-6;
-        padding-bottom: $spacing-3;
-    }
-    
-    &__decorator {
-        position: relative;
-        width: 9rem;
-        height: 9rem;
-        margin: 0 auto;
-        -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%);
-        mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%);
-    }
-    
-    &__grid-pattern {
-        position: absolute;
-        inset: 0;
-        background-image: 
-            linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-        background-size: 24px 24px;
-        opacity: 0.5;
-        
-        .body--dark & {
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-        }
-    }
-    
-    &__icon-wrapper {
-        position: absolute;
-        inset: 0;
-        margin: auto;
+    &--large {
+        grid-column: 1 / -1;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 3rem;
-        height: 3rem;
-        background-color: $color-black;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        flex-direction: column;
+        padding: 0;
         
-        .body--dark & {
-            background-color: $color-black;
+        @include respond-to(md) {
+            flex-direction: row;
+            align-items: center;
+            min-height: 400px;
+        }
+        
+        @include respond-to(lg) {
+            height: 480px;
+        }
+        
+        .feature-card__content-left {
+            padding: $spacing-6;
+            
+            @include respond-to(sm) {
+                padding: $spacing-8;
+            }
+            
+            @include respond-to(md) {
+                flex: 1;
+                padding: $spacing-12;
+            }
+            
+            @include respond-to(lg) {
+                padding: $spacing-16;
+            }
+        }
+        
+        .feature-card__visual {
+            padding: $spacing-4;
+            
+            @include respond-to(md) {
+                flex: 1.2;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: $spacing-8;
+            }
+            
+            @include respond-to(lg) {
+                padding: $spacing-10;
+            }
+            
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                border-radius: $radius-md;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+                
+                @include respond-to(md) {
+                    border-radius: $radius-lg;
+                }
+            }
         }
     }
     
-    &__icon {
-        width: 24px;
-        height: 24px;
-        color: $color-white;
+    &--medium {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 320px;
+        padding: $spacing-6;
+        @include respond-to(sm) {
+            min-height: 360px;
+            padding: $spacing-8;
+        }
+        
+        @include respond-to(md) {
+            min-height: 400px;
+        }
+        
+        @include respond-to(lg) {
+            min-height: 420px;
+            padding: $spacing-10;
+        }
+        
+        .feature-card__content {
+            margin-bottom: $spacing-6;
+            
+            @include respond-to(md) {
+                margin-bottom: $spacing-8;
+            }
+        }
+    }
+    
+    &--visual-only {
+        padding: 0;
+        min-height: 280px;
+        display: flex;
+        align-items: flex-end;
+        
+        @include respond-to(sm) {
+            min-height: 320px;
+        }
+        
+        @include respond-to(md) {
+            min-height: 400px;
+        }
+        
+        @include respond-to(lg) {
+            min-height: 420px;
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom-left-radius: $radius-xl;
+            border-bottom-right-radius: $radius-xl;
+            
+            @include respond-to(md) {
+                border-bottom-left-radius: $radius-2xl;
+                border-bottom-right-radius: $radius-2xl;
+            }
+        }
     }
     
     &__title {
-        margin-top: $spacing-6;
-        font-size: $font-size-base;
-        font-weight: 500;
+        font-family: $font-primary;
+        font-size: 1.25rem; // Mobile: 20px
+        font-weight: 600;
         color: $color-white;
-    }
-    
-    &__content {
-        padding: 0 $spacing-6 $spacing-6;
+        margin-bottom: $spacing-3;
+        line-height: 1.2;
+        
+        @include respond-to(sm) {
+            font-size: 1.5rem; // 24px
+            margin-bottom: $spacing-4;
+        }
+        
+        @include respond-to(md) {
+            font-size: 1.75rem; // 28px
+        }
+        
+        @include respond-to(lg) {
+            font-size: 2rem; // 32px
+        }
     }
     
     &__description {
-        font-size: $font-size-sm;
-        color: $color-gray-400;
-        line-height: $line-height-relaxed;
+        font-size: 0.9375rem; // Mobile: 15px
+        color: #A3A3A3;
+        line-height: 1.5;
+        width: 100%;
+        
+        @include respond-to(sm) {
+            font-size: 1rem; // 16px
+        }
+        
+        @include respond-to(md) {
+            font-size: 1.0625rem; // 17px
+            line-height: 1.6;
+        }
+        
+        @include respond-to(lg) {
+            font-size: 1.125rem; // 18px
+        }
+    }
+}
+
+.feature-text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $spacing-6;
+    
+    @include respond-to(sm) {
+        padding: $spacing-8;
+    }
+    
+    @include respond-to(md) {
+        padding: $spacing-10;
+    }
+    
+    &__title {
+        font-family: $font-primary;
+        font-size: 1.875rem; // Mobile: 30px
+        font-weight: 700;
+        color: $color-white;
+        margin-bottom: $spacing-4;
+        line-height: 1.1;
+        
+        @include respond-to(sm) {
+            font-size: 2.25rem; // 36px
+            margin-bottom: $spacing-5;
+        }
+        
+        @include respond-to(md) {
+            font-size: 2.75rem; // 44px
+            margin-bottom: $spacing-6;
+        }
+        
+        @include respond-to(lg) {
+            font-size: 3.5rem; // 56px
+        }
+    }
+    
+    &__description {
+        font-size: 1rem; // Mobile: 16px
+        color: #A3A3A3;
+        line-height: 1.6;
+        
+        @include respond-to(sm) {
+            font-size: 1.0625rem; // 17px
+        }
+        
+        @include respond-to(md) {
+            font-size: 1.125rem; // 18px
+        }
+        
+        @include respond-to(lg) {
+            font-size: 1.25rem; // 20px
+        }
     }
 }

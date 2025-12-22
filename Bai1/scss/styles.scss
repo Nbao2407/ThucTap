@@ -3,23 +3,24 @@
 // ==========================================
 
 // 1. Configuration
-@import 'variables';
-@import 'mixins';
+@use 'variables';
+@use 'mixins';
 
 // 2. Base & Reset
-@import 'base';
-@import 'animations';
+@use 'base';
+@use 'animations';
 
 // 3. Components
-@import 'button';
-@import 'language-selector';
+@use 'button';
+@use 'language-selector';
+
 
 // 4. Layout Sections
-@import 'header';
-@import 'hero';
-@import 'partners';
-@import 'features';
-@import 'testimonials';
-@import 'footer';
-
-
+@use 'header';
+@use 'hero';
+@use 'partners';
+@use 'features';
+@use 'testimonials';
+@use 'faq';
+@use 'cta';
+@use 'footer';

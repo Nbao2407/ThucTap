@@ -2,17 +2,21 @@
 // Button Component
 // ==========================================
 
+@use 'variables' as *;
+@use 'mixins' as *;
+
 .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: $spacing-2;
     white-space: nowrap;
-    border-radius: $radius-md;
+    border-radius: 60px;
     font-weight: 500;
     transition: $transition-base;
     border: none;
     cursor: pointer;
+    @include touch-target;
     
     &:focus-visible {
         outline: 2px solid rgba(255, 255, 255, 0.5);
@@ -26,51 +30,162 @@
     
     // Variants
     &--primary {
-        background-color: $color-white;
+        background-color: $color-brand-primary;
         color: $color-black;
+        font-weight: 600;
         
         &:hover {
-            background-color: $color-gray-300;
+            background-color: $color-brand-primary-hover;
+            box-shadow: 0 0 15px rgba(241, 255, 157, 0.4);
+        }
+    }
+    
+    &--signin {
+        background-color: #ffffff;
+        color: $color-black;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
         }
     }
     
     &--ghost {
         background-color: transparent;
-        color: $color-white;
+        color: $color-gray-300;
+        border: 1px solid rgba(255, 255, 255, 0.1);
         
         &:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: $color-white;
+            border-color: rgba(255, 255, 255, 0.2);
         }
     }
     
     &--gradient {
-        background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+        background: linear-gradient(135deg, $color-brand-primary 0%, #D4EF55 100%);
         color: $color-black;
-        border-radius: $radius-lg;
+        font-weight: 600;
+        border-radius: $radius-full;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0.3;
+            transition: $transition-base;
+        }
         
         &:hover {
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 239, 85, 0.4);
+            
+            &::after {
+                opacity: 0.5;
+            }
         }
         
         &:active {
-            transform: scale(0.95);
+            transform: translateY(0);
         }
     }
     
     // Sizes
     &--sm {
-        height: 40px;
-        padding: 0 $spacing-5;
-        font-size: $font-size-sm;
+        height: 38px;
+        padding: 0 $spacing-4;
+        font-size: 0.8125rem;
+        
+        @include respond-to(sm) {
+            height: 42px;
+            padding: 0 $spacing-5;
+            font-size: 0.875rem;
+        }
+        
+        @include respond-to(md) {
+            height: 44px;
+            font-size: $font-size-sm;
+        }
     }
     
     &--lg {
-        height: 48px;
-        padding: 0 $spacing-8;
-        font-size: $font-size-base;
+        height: 44px;
+        padding: 0 $spacing-6;
+        font-size: 0.9375rem;
+        border-radius: $radius-full;
+        
+        @include respond-to(sm) {
+            height: 50px;
+            padding: 0 $spacing-8;
+            font-size: 1rem;
+        }
+        
+        @include respond-to(md) {
+            height: 56px;
+            padding: 0 $spacing-10;
+            font-size: $font-size-lg;
+        }
+        
+        @include respond-to(lg) {
+            height: 60px;
+            padding: 0 $spacing-12;
+            font-size: $font-size-xl;
+        }
+        
+        @include respond-to(xl) {
+            height: 64px;
+        }
+    }
+    
+    &--xl {
+        height: 52px;
+        padding: 0 $spacing-6;
+        font-size: 1rem;
+        border-radius: $radius-full;
+        
+        @include respond-to(sm) {
+            height: 60px;
+            padding: 0 $spacing-8;
+            font-size: $font-size-lg;
+        }
+        
+        @include respond-to(md) {
+            height: 68px;
+            padding: 0 $spacing-10;
+            font-size: $font-size-xl;
+        }
+        
+        @include respond-to(lg) {
+            height: 76px;
+            padding: 0 $spacing-12;
+            font-size: $font-size-2xl;
+        }
+        
+        @include respond-to(xl) {
+            height: 84px;
+        }
     }
     
     &--full {
         width: 100%;
+    }
+    
+    &__icon {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        
+        @include respond-to(md) {
+            width: 20px;
+            height: 20px;
+        }
     }
 }

@@ -2,6 +2,8 @@
 // Mixins
 // ==========================================
 
+@use 'variables' as *;
+
 @mixin respond-to($breakpoint) {
     @if $breakpoint == sm {
         @media (min-width: $breakpoint-sm) {
@@ -22,10 +24,39 @@
     }
 }
 
+// Mobile-first max-width queries
+@mixin respond-to-max($breakpoint) {
+    @if $breakpoint == sm {
+        @media (max-width: #{$breakpoint-sm - 1}) {
+            @content;
+        }
+    } @else if $breakpoint == md {
+        @media (max-width: #{$breakpoint-md - 1}) {
+            @content;
+        }
+    } @else if $breakpoint == lg {
+        @media (max-width: #{$breakpoint-lg - 1}) {
+            @content;
+        }
+    } @else if $breakpoint == xl {
+        @media (max-width: #{$breakpoint-xl - 1}) {
+            @content;
+        }
+    }
+}
+
 @mixin container {
     max-width: $container-max-width;
     margin: 0 auto;
-    padding: 0 $container-padding;
+    padding: 0 $spacing-4;
+    
+    @include respond-to(sm) {
+        padding: 0 $spacing-6;
+    }
+    
+    @include respond-to(md) {
+        padding: 0 $container-padding;
+    }
 }
 
 @mixin gradient-text {
@@ -38,4 +69,17 @@
 @mixin backdrop-blur {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+}
+
+// Mobile touch targets
+@mixin touch-target {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+// Prevent text from wrapping
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

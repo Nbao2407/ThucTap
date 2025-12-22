@@ -2,143 +2,204 @@
 // Hero Section
 // ==========================================
 
+@use 'variables' as *;
+@use 'mixins' as *;
+
 .hero {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: $spacing-20 $spacing-6 $spacing-24;
+    padding: $spacing-16 0 $spacing-20;
     animation: fadeIn 0.6s ease-out;
     
     @include respond-to(md) {
-        padding: $spacing-24 $spacing-6 $spacing-24;
+        padding: $spacing-20 0 $spacing-24;
+    }
+    
+    @include respond-to(lg) {
+        padding: $spacing-24 0 $spacing-32;
     }
     
     &__container {
         @include container;
         display: flex;
         flex-direction: column;
-        align-items: center;
         padding-top: 80px;
-    }
-    
-    &__badge {
-        display: inline-flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: $spacing-2;
-        padding: $spacing-2 $spacing-4;
-        border-radius: $radius-full;
-        border: 1px solid $color-gray-700;
-        background-color: rgba(128, 128, 128, 0.2);
-        @include backdrop-blur;
-        margin-bottom: $spacing-8;
-        max-width: 100%;
-    }
-    
-    &__badge-text {
-        font-size: $font-size-xs;
-        color: $color-gray-400;
-        white-space: nowrap;
-        text-align: center;
-    }
-    
-    &__badge-link {
-        display: flex;
-        align-items: center;
-        gap: $spacing-1;
-        font-size: $font-size-xs;
-        color: $color-gray-400;
-        white-space: nowrap;
-        transition: $transition-base;
+        gap: $spacing-8;
         
-        &:hover {
-            color: $color-white;
+        @include respond-to(sm) {
+            padding-top: 90px;
+            gap: $spacing-10;
         }
-    }
-    
-    &__badge-icon {
-        width: 12px;
-        height: 12px;
-    }
-    
-    &__title {
-        font-size: $font-size-4xl;
-        font-weight: 500;
-        text-align: center;
-        max-width: 48rem;
-        padding: 0 $spacing-6;
-        line-height: $line-height-tight;
-        margin-bottom: $spacing-6;
-        @include gradient-text;
-        letter-spacing: -0.05em;
         
         @include respond-to(md) {
-            font-size: $font-size-5xl;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 100px;
+            gap: $spacing-8;
         }
         
         @include respond-to(lg) {
-            font-size: $font-size-6xl;
+            padding-top: 120px;
+            gap: $spacing-12;
         }
     }
     
-    &__description {
-        font-size: $font-size-sm;
+    &__content {
         text-align: center;
-        max-width: 42rem;
-        padding: 0 $spacing-6;
-        margin-bottom: $spacing-10;
-        color: $color-gray-400;
-        line-height: $line-height-relaxed;
+        max-width: 100%;
         
         @include respond-to(md) {
-            font-size: $font-size-base;
+            text-align: left;
+            max-width: 48%;
+            flex-shrink: 0;
+        }
+        
+        @include respond-to(lg) {
+            max-width: 50%;
+        }
+    }
+    
+    &__title {
+        font-size: 1.875rem; // Mobile: 30px
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: $spacing-5;
+        color: $color-white;
+        letter-spacing: -0.02em;
+        
+        @include respond-to(sm) {
+            font-size: 2.25rem; // 36px
+            margin-bottom: $spacing-6;
+        }
+        
+        @include respond-to(md) {
+            font-size: 2.5rem; // Tablet: 40px
+        }
+        
+        @include respond-to(lg) {
+            font-size: 3rem; // Desktop: 48px
+        }
+        
+        @include respond-to(xl) {
+            font-size: 3.125rem; // Large: 50px
         }
         
         br {
+            display: none;
             @include respond-to(md) {
                 display: block;
             }
         }
     }
     
+    &__description {
+        font-size: 1rem;
+        color: $color-gray-400;
+        line-height: 1.6;
+        margin-bottom: $spacing-6;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        
+        @include respond-to(sm) {
+            font-size: $font-size-lg;
+            margin-bottom: $spacing-8;
+        }
+        
+        @include respond-to(md) {
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 100%;
+            font-size: $font-size-xl;
+        }
+        
+        @include respond-to(lg) {
+            font-size: $font-size-2xl;
+        }
+    }
+    
     &__cta {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: $spacing-4;
-        position: relative;
-        z-index: 10;
-        margin-bottom: $spacing-16;
+        justify-content: center;
+        gap: $spacing-3;
+        
+        @include respond-to(sm) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: $spacing-4;
+        }
+        
+        @include respond-to(md) {
+            justify-content: flex-start;
+        }
+        
+        .button {
+            width: 100%;
+            
+            @include respond-to(sm) {
+                width: auto;
+                min-width: 160px;
+            }
+        }
     }
     
-    &__preview {
+    &__visuals {
         width: 100%;
-        max-width: 80rem;
-        position: relative;
-        padding-bottom: $spacing-20;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;    
+        margin: 0 auto;
+        
+        @include respond-to(sm) {
+            max-width: 500px;
+            gap: $spacing-6;
+        }
+        
+        @include respond-to(md) {
+            max-width: 50%; 
+            margin: 0;
+            margin-left: auto; 
+        }
+        
+        @include respond-to(lg) {
+        	max-width: 52%;
+        }
     }
     
-    &__glow {
-        position: absolute;
-        left: 50%;
-        top: -23%;
-        transform: translateX(-50%);
-        width: 90%;
-        height: 400px;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
-        pointer-events: none;
-        z-index: 0;
-        filter: blur(60px);
-    }
-    
-    &__image {
-        position: relative;
-        z-index: 10;
+    &__visual-top {
+        display: flex;
+        justify-content: flex-end; 
         width: 100%;
+    }
+    
+    &__img {
         height: auto;
-        border-radius: $radius-lg;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        object-fit: contain;
+        display: block; 
+        
+        &--top {
+            width: 100%; 
+            height: auto;
+            border-radius: $radius-lg;
+        }
+        
+        &--bottom {
+            width: 100%;
+            border-radius: $radius-lg;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.02);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            
+            @include respond-to(md) {
+                border-radius: $radius-xl;
+            }
+        }
     }
 }

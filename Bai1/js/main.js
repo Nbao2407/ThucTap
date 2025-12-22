@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    const animateElements = document.querySelectorAll('.hero__badge, .hero__title, .hero__description, .hero__cta, .hero__preview');
+    const animateElements = document.querySelectorAll('.hero__title, .hero__description, .hero__cta');
     animateElements.forEach((element, index) => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(20px)';
@@ -165,4 +165,34 @@ document.addEventListener('DOMContentLoaded', function() {
     
     initLanguageSelector('language-selector', 'language-trigger', 'language-dropdown', 'selected-flag', 'selected-label');
     initLanguageSelector('language-selector-mobile', 'language-trigger-mobile', 'language-dropdown-mobile', null, 'selected-label-mobile');
+    initLanguageSelector('language-selector-footer', 'language-trigger-footer', 'language-dropdown-footer', null, 'selected-label-footer');
+
+    // FAQ Accordion Functionality
+    const accordionTriggers = document.querySelectorAll('.accordion__trigger');
+    
+    accordionTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+            const item = this.parentElement;
+            const content = item.querySelector('.accordion__content');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            // Toggle current item
+            this.setAttribute('aria-expanded', !isExpanded);
+            item.classList.toggle('is-active');
+            
+            if (!isExpanded) {
+                content.hidden = false;
+                // Force reflow to enable transition
+                void content.offsetHeight;
+                content.style.height = content.scrollHeight + 'px';
+            } else {
+                content.style.height = '0px';
+                content.addEventListener('transitionend', function() {
+                    if (!item.classList.contains('is-active')) {
+                        content.hidden = true;
+                    }
+                }, { once: true });
+            }
+        });
+    });
 });

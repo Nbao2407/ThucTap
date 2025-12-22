@@ -2,6 +2,8 @@
 // Reset & Base Styles
 // ==========================================
 
+@use 'variables' as *;
+
 *,
 *::before,
 *::after {
@@ -13,6 +15,7 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -23,6 +26,8 @@ body {
     background-color: $color-black;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    min-height: 100vh;
     
     &.body--dark {
         background-color: $color-black;
@@ -39,6 +44,10 @@ a {
     text-decoration: none;
     color: inherit;
     transition: $transition-base;
+    
+    &:hover {
+        color: $color-brand-primary;
+    }
 }
 
 button {

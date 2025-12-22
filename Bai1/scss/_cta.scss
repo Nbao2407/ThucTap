@@ -1,0 +1,160 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.cta {
+    padding: $spacing-16 0;
+    
+    @include respond-to(md) {
+        padding: $spacing-20 0;
+    }
+    
+    @include respond-to(lg) {
+        padding: $spacing-24 0;
+    }
+    
+    &__container {
+        @include container;
+    }
+    
+    &__content {
+        position: relative;
+        padding: $spacing-12 $spacing-4;
+        text-align: center;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        @include respond-to(sm) {
+            padding: $spacing-16 $spacing-6;
+        }
+        
+        @include respond-to(md) {
+            padding: $spacing-20 $spacing-8;
+        }
+        
+        @include respond-to(lg) {
+            padding: $spacing-24 $spacing-10;
+        }
+        
+        @include respond-to(xl) {
+            padding: $spacing-32 $spacing-12;
+        }
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(241, 255, 157, 0.1) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+        }
+    }
+    
+    &__title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $color-white;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+        
+        @include respond-to(sm) {
+            font-size: 1.875rem;
+        }
+        
+        @include respond-to(md) {
+            font-size: 2.5rem;
+        }
+        
+        @include respond-to(lg) {
+            font-size: 3.5rem;
+        }
+        
+        @include respond-to(xl) {
+            font-size: 4rem;
+        }
+        
+        &--top {
+            margin-bottom: - $spacing-3;
+            position: relative;
+            z-index: 1;
+            
+            @include respond-to(md) {
+                margin-bottom: - $spacing-5;
+            }
+            
+            @include respond-to(lg) {
+                margin-bottom: - $spacing-6;
+            }
+        }
+        
+        &--bottom {
+            margin-top: - $spacing-3;
+            position: relative;
+            z-index: 1;
+            
+            @include respond-to(md) {
+                margin-top: - $spacing-5;
+            }
+            
+            @include respond-to(lg) {
+                margin-top: - $spacing-6;
+            }
+        }
+    }
+    
+    &__actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 10;
+        margin: 0;
+        gap: $spacing-2;
+        width: 100%;
+        
+        @include respond-to(sm) {
+            flex-direction: row;
+            width: auto;
+            gap: $spacing-3;
+        }
+        
+        .button {
+            width: 100%;
+            max-width: 140px;
+            font-size: 0.8125rem;
+            font-weight: 400;
+            height: 32px;
+            padding: 0 $spacing-3;
+            
+            @include respond-to(sm) {
+                width: auto;
+                max-width: none;
+                font-size: 0.875rem;
+                height: 24px;
+                padding: 0 $spacing-4;
+            }
+            
+            @include respond-to(md) {
+                font-size: 1rem;
+                height: 48px;
+                padding: 0 $spacing-6;
+            }
+            
+            @include respond-to(lg) {
+                font-size: $font-size-lg;
+                height: 52px;
+                padding: 0 $spacing-8;
+            }
+        }
+    }
+}
