@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import HeroImage from '../assets/nike-just-do-it.avif';
 import Home1 from '../assets/nike-just-do-it6.avif';
 import Home2 from '../assets/nike-just-do-it7.avif';
 import Home3 from '../assets/nike-just-do-it3.avif';
@@ -37,7 +38,7 @@ const Home = () => {
             {/* Hero Section */}
             <div className="w-full relative h-[600px] lg:h-[700px] mb-12">
                 <img
-                    src=''
+                    src={HeroImage}
                     alt="Hero Banner"
                     className="w-full h-full object-cover object-top"
                 />
@@ -59,62 +60,65 @@ const Home = () => {
                 <h2 className="text-2xl font-medium mb-6">Featured</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2">
                     {/* Grid Item 1 */}
-                    <Link to="/products" className="relative h-[600px] group cursor-pointer block">
+                    <Link to="/products" className="relative h-[800px] group cursor-pointer block">
                         <img
                             src={Home1}
                             alt="Kids"
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute bottom-10 left-10 text-white">
-                            <p className="font-medium text-lg mb-4">Nike Style</p>
-                            <button className="bg-white text-black px-5 py-2 rounded-full font-medium hover:bg-gray-200">
-                                Shop Lifestyle
+                        <div className="absolute bottom-12 left-12 text-white">
+                            <p className="font-medium text-lg mb-1">Back to Sport</p>
+                            <p className="font-bold text-2xl mb-6">Bring Your Game</p>
+                            <button className="bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-gray-200 hover:scale-105 transition-all">
+                                Shop
                             </button>
                         </div>
                     </Link>
 
                     {/* Grid Item 2 */}
-                    <Link to="/products" className="relative h-[600px] group cursor-pointer block aspect-ratio-1">
+                    <Link to="/products" className="relative h-[800px] group cursor-pointer block">
                         <img
                             src={Home2}
                             alt="Woman Running"
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute bottom-10 left-10 text-white">
-                            <p className="font-medium text-lg mb-4">Running</p>
-                            <button className="bg-white text-black px-5 py-2 rounded-full font-medium hover:bg-gray-200">
-                                Shop Running
+                        <div className="absolute bottom-12 left-12 text-white">
+                            <p className="font-medium text-lg mb-1">Pegasus Plus</p>
+                            <p className="font-bold text-2xl mb-6">Next-Level Energy Return</p>
+                            <button className="bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-gray-200 hover:scale-105 transition-all">
+                                Shop
                             </button>
                         </div>
                     </Link>
 
                     {/* Grid Item 3 */}
-                    <Link to="/products" className="relative h-[600px] group cursor-pointer block">
+                    <Link to="/products" className="relative h-[800px] group cursor-pointer block">
                         <img
                             src={Home3}
                             alt="Mens Style"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-top"
                         />
-                        <div className="absolute bottom-10 left-10 text-white">
-                            <p className="font-medium text-lg mb-4">Training</p>
-                            <button className="bg-white text-black px-5 py-2 rounded-full font-medium hover:bg-gray-200">
-                                Shop Training
+                        <div className="absolute bottom-12 left-12 text-white">
+                            <p className="font-medium text-lg mb-1">Training</p>
+                            <p className="font-bold text-2xl mb-6">Push Your Limits</p>
+                            <button className="bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-gray-200 hover:scale-105 transition-all">
+                                Shop
                             </button>
                         </div>
                     </Link>
 
                     {/* Grid Item 4 */}
-                    {/* Grid Item 4 */}
-                    <Link to="/products" className="relative h-[600px] group cursor-pointer block">
+                    <Link to="/products" className="relative h-[800px] group cursor-pointer block">
                         <img
                             src={Home4}
                             alt="Women Style"
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute bottom-10 left-10 text-white">
-                            <p className="font-medium text-lg mb-4">Jordan</p>
-                            <button className="bg-white text-black px-5 py-2 rounded-full font-medium hover:bg-gray-200">
-                                Shop Jordan
+                        <div className="absolute bottom-12 left-12 text-white">
+                            <p className="font-medium text-lg mb-1">Jordan</p>
+                            <p className="font-bold text-2xl mb-6">Flight Essentials</p>
+                            <button className="bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-gray-200 hover:scale-105 transition-all">
+                                Shop
                             </button>
                         </div>
                     </Link>
