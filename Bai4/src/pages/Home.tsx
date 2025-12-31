@@ -54,7 +54,7 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* Featured Section - 2x2 Grid */}
+            {/* Featured Section*/}
             <div className="w-full mx-auto  mb-20">
                 <h2 className="text-2xl font-medium mb-6">Featured</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2">
@@ -89,7 +89,6 @@ const Home = () => {
                     </Link>
 
                     {/* Grid Item 3 */}
-                    {/* Grid Item 3 */}
                     <Link to="/products" className="relative h-[600px] group cursor-pointer block">
                         <img
                             src={Home3}
@@ -122,7 +121,7 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* New You, New Year - Carousel */}
+            {/*Carousel */}
             <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 mb-20">
                 <div className="flex justify-between items-end mb-6">
                     <h2 className="text-2xl font-medium">New Year, New You</h2>

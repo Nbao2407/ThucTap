@@ -24,7 +24,6 @@ const ProductDetail = () => {
     return (
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10 font-sans text-gray-900 pb-20">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-                {/* Left Column - Image Gallery (Simulated with one image for now) */}
                 <div className="lg:col-span-8 sticky top-24 h-fit">
                     <div className="grid grid-cols-1 gap-4">
                         <div className="aspect-square bg-[#f5f5f5] rounded-md overflow-hidden relative animate-fade-in">
@@ -34,8 +33,6 @@ const ProductDetail = () => {
                                 className="w-full h-full object-contain mix-blend-multiply p-8 pointer-events-none"
                             />
                         </div>
-                        {/* Placeholder for more images if available */}
-                        {/* <div className="aspect-square bg-[#f5f5f5] rounded-md"></div> */}
                     </div>
                 </div>
 

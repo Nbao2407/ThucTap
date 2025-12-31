@@ -1,0 +1,244 @@
+{
+  "students": [
+    {
+      "id": "SV002",
+      "name": "Trần Thị Bình",
+      "email": "binh.tran@email.com",
+      "phone": "0923456789",
+      "major": "Kỹ thuật phần mềm",
+      "classroom": "KTPM02",
+      "dob": "22/8/2001",
+      "gender": "Female"
+    },
+    {
+      "id": "SV003",
+      "name": "Lê Hoàng Cường",
+      "email": "cuong.le@email.com",
+      "phone": "0934567890",
+      "major": "Khoa học máy tính",
+      "classroom": "KHMT01",
+      "dob": "03/11/2002",
+      "gender": "Male"
+    },
+    {
+      "id": "SV004",
+      "name": "Phạm Minh Dũng",
+      "email": "dung.pham@email.com",
+      "phone": "0945678901",
+      "major": "An toàn thông tin",
+      "classroom": "ATTT01",
+      "dob": "18/3/2001",
+      "gender": "Male"
+    },
+    {
+      "id": "SV005",
+      "name": "Hoàng Thị Em",
+      "email": "em.hoang@email.com",
+      "phone": "0956789012",
+      "major": "Trí tuệ nhân tạo",
+      "classroom": "TTNT01",
+      "dob": "25/7/2002",
+      "gender": "Female"
+    },
+    {
+      "id": "SV006",
+      "name": "Vũ Đức Thắng",
+      "email": "thang.vu@email.com",
+      "phone": "0967890123",
+      "major": "Hệ thống thông tin",
+      "classroom": "HTTT01",
+      "dob": "12/09/2002",
+      "gender": "Male"
+    },
+    {
+      "id": "SV007",
+      "name": "Đặng Thu Hà",
+      "email": "ha.dang@email.com",
+      "phone": "0978901234",
+      "major": "Kinh doanh quốc tế",
+      "classroom": "KDQT02",
+      "dob": "05/01/2003",
+      "gender": "Female"
+    },
+    {
+      "id": "SV008",
+      "name": "Bùi Văn Hùng",
+      "email": "hung.bui@email.com",
+      "phone": "0989012345",
+      "major": "Công nghệ thông tin",
+      "classroom": "CNTT03",
+      "dob": "20/11/2001",
+      "gender": "Male"
+    },
+    {
+      "id": "SV009",
+      "name": "Đỗ Thị Lan",
+      "email": "lan.do@email.com",
+      "phone": "0321234567",
+      "major": "Ngôn ngữ Anh",
+      "classroom": "NNA01",
+      "dob": "14/02/2003",
+      "gender": "Female"
+    },
+    {
+      "id": "SV010",
+      "name": "Ngô Quang Huy",
+      "email": "huy.ngo@email.com",
+      "phone": "0332345678",
+      "major": "Khoa học dữ liệu",
+      "classroom": "KHDL01",
+      "dob": "30/04/2002",
+      "gender": "Male"
+    },
+    {
+      "id": "SV011",
+      "name": "Lương Thị Mai",
+      "email": "mai.luong@email.com",
+      "phone": "0343456789",
+      "major": "Quản trị kinh doanh",
+      "classroom": "QTKD02",
+      "dob": "10/10/2002",
+      "gender": "Female"
+    },
+    {
+      "id": "SV012",
+      "name": "Trương Tấn Phát",
+      "email": "phat.truong@email.com",
+      "phone": "0354567890",
+      "major": "Kỹ thuật phần mềm",
+      "classroom": "KTPM03",
+      "dob": "22/12/2001",
+      "gender": "Male"
+    },
+    {
+      "id": "SV013",
+      "name": "Dương Thúy Kiều",
+      "email": "kieu.duong@email.com",
+      "phone": "0365678901",
+      "major": "Marketing",
+      "classroom": "MKT01",
+      "dob": "08/03/2003",
+      "gender": "Female"
+    },
+    {
+      "id": "SV014",
+      "name": "Hồ Văn Long",
+      "email": "long.ho@email.com",
+      "phone": "0376789012",
+      "major": "Thiết kế đồ họa",
+      "classroom": "TKDH01",
+      "dob": "19/06/2002",
+      "gender": "Male"
+    },
+    {
+      "id": "SV015",
+      "name": "Lý Thị Ngọc",
+      "email": "ngoc.ly@email.com",
+      "phone": "0387890123",
+      "major": "Logistics",
+      "classroom": "LOG02",
+      "dob": "11/11/2002",
+      "gender": "Female"
+    },
+    {
+      "id": "SV016",
+      "name": "Mạc Văn Khoa",
+      "email": "khoa.mac@email.com",
+      "phone": "0398901234",
+      "major": "Điện tử viễn thông",
+      "classroom": "DTVT01",
+      "dob": "02/09/2001",
+      "gender": "Male"
+    },
+    {
+      "id": "SV017",
+      "name": "Phan Thị Yến",
+      "email": "yen.phan@email.com",
+      "phone": "0861234567",
+      "major": "Kế toán",
+      "classroom": "KT01",
+      "dob": "28/05/2003",
+      "gender": "Female"
+    },
+    {
+      "id": "SV018",
+      "name": "Võ Thanh Tùng",
+      "email": "tung.vo@email.com",
+      "phone": "0882345678",
+      "major": "Công nghệ ô tô",
+      "classroom": "CNOT01",
+      "dob": "15/07/2001",
+      "gender": "Male"
+    },
+    {
+      "id": "SV019",
+      "name": "Trịnh Mỹ Duyên",
+      "email": "duyen.trinh@email.com",
+      "phone": "0893456789",
+      "major": "Du lịch lữ hành",
+      "classroom": "DLLH01",
+      "dob": "01/01/2003",
+      "gender": "Female"
+    },
+    {
+      "id": "SV020",
+      "name": "Đinh Văn Nam",
+      "email": "nam.dinh@email.com",
+      "phone": "0814567890",
+      "major": "Xây dựng",
+      "classroom": "XD02",
+      "dob": "16/04/2001",
+      "gender": "Male"
+    },
+    {
+      "id": "SV021",
+      "name": "Cao Thị Hằng",
+      "email": "hang.cao@email.com",
+      "phone": "0825678901",
+      "major": "Sư phạm Toán",
+      "classroom": "SPT01",
+      "dob": "20/10/2002",
+      "gender": "Female"
+    },
+    {
+      "id": "SV022",
+      "name": "Vương Quốc Bảo",
+      "email": "bao.vuong@email.com",
+      "phone": "0836789012",
+      "major": "Luật kinh tế",
+      "classroom": "LKT01",
+      "dob": "05/05/2001",
+      "gender": "Male"
+    },
+    {
+      "id": "SV023",
+      "name": "Mai Thị Trúc",
+      "email": "truc.mai@email.com",
+      "phone": "0847890123",
+      "major": "Công nghệ thực phẩm",
+      "classroom": "CNTP01",
+      "dob": "12/12/2002",
+      "gender": "Female"
+    },
+    {
+      "id": "SV024",
+      "name": "Tạ Văn Minh",
+      "email": "minh.ta@email.com",
+      "phone": "0858901234",
+      "major": "Cơ điện tử",
+      "classroom": "CDT01",
+      "dob": "25/03/2001",
+      "gender": "Male"
+    },
+    {
+      "name": "Lâm Thị Ánh",
+      "email": "anh.lam@email.com",
+      "phone": "0969012345",
+      "major": "Tài chính ngân hàng",
+      "classroom": "TCNH02",
+      "dob": "30/08/2003",
+      "gender": "Female",
+      "id": "SV025"
+    }
+  ]
+}

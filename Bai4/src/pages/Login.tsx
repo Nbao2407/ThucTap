@@ -22,7 +22,6 @@ const Login = () => {
         e.preventDefault();
         if (username.trim()) {
             login(username);
-            // Redirect to the page they were trying to visit or home
             const from = location.state?.from?.pathname || '/';
             navigate(from, { replace: true });
         }
