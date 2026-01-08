@@ -10,22 +10,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: $spacing-16 0 $spacing-20;
     animation: fadeIn 0.6s ease-out;
-    
-    @include respond-to(md) {
-        padding: $spacing-20 0 $spacing-24;
-    }
-    
-    @include respond-to(lg) {
-        padding: $spacing-24 0 $spacing-32;
-    }
     
     &__container {
         @include container;
         display: flex;
         flex-direction: column;
         padding-top: 80px;
+        max-width: 1200px;
         gap: $spacing-8;
         
         @include respond-to(sm) {
@@ -64,7 +56,7 @@
     
     &__title {
         font-size: 1.875rem; // Mobile: 30px
-        font-weight: 700;
+        font-weight: 850;
         line-height: 1.1;
         margin-bottom: $spacing-5;
         color: $color-white;
@@ -97,7 +89,7 @@
     
     &__description {
         font-size: 1rem;
-        color: $color-gray-400;
+        color: $color-white;
         line-height: 1.6;
         margin-bottom: $spacing-6;
         max-width: 100%;
@@ -153,12 +145,10 @@
         max-width: 100%;
         display: flex;
         flex-direction: column;
-        gap: $spacing-4;    
         margin: 0 auto;
         
         @include respond-to(sm) {
             max-width: 500px;
-            gap: $spacing-6;
         }
         
         @include respond-to(md) {

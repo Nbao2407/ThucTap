@@ -2,15 +2,6 @@
 @use 'mixins' as *;
 
 .cta {
-    padding: $spacing-16 0;
-    
-    @include respond-to(md) {
-        padding: $spacing-20 0;
-    }
-    
-    @include respond-to(lg) {
-        padding: $spacing-24 0;
-    }
     
     &__container {
         @include container;
@@ -18,42 +9,12 @@
     
     &__content {
         position: relative;
-        padding: $spacing-12 $spacing-4;
         text-align: center;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        
-        @include respond-to(sm) {
-            padding: $spacing-16 $spacing-6;
-        }
-        
-        @include respond-to(md) {
-            padding: $spacing-20 $spacing-8;
-        }
-        
-        @include respond-to(lg) {
-            padding: $spacing-24 $spacing-10;
-        }
-        
-        @include respond-to(xl) {
-            padding: $spacing-32 $spacing-12;
-        }
-        
-        &::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(241, 255, 157, 0.1) 0%, transparent 70%);
-            filter: blur(80px);
-            pointer-events: none;
-        }
     }
     
     &__title {
@@ -130,31 +91,34 @@
         
         .button {
             width: 100%;
-            max-width: 140px;
-            font-size: 0.8125rem;
+            max-width: 100px; // Mobile default
+            height: 45px;
+            font-size: 0.875rem;
             font-weight: 400;
-            height: 32px;
-            padding: 0 $spacing-3;
+            padding: 0 $spacing-6;
             
             @include respond-to(sm) {
                 width: auto;
                 max-width: none;
-                font-size: 0.875rem;
-                height: 24px;
-                padding: 0 $spacing-4;
+                font-size: 1.25rem; 
+                height: 56px;
+                padding: 0 $spacing-8;
             }
             
             @include respond-to(md) {
-                font-size: 1rem;
-                height: 48px;
-                padding: 0 $spacing-6;
+                height: 64px;
+                font-size: 1.5rem;
+                padding: 0 $spacing-10;
             }
             
             @include respond-to(lg) {
-                font-size: $font-size-lg;
-                height: 52px;
-                padding: 0 $spacing-8;
+                max-width: 320px;
+                height: 80px;
+                font-size: 2rem;
+                padding: $spacing-3 60px;
             }
+            
+           
         }
     }
 }

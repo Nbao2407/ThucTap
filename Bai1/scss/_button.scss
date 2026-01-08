@@ -12,6 +12,7 @@
     gap: $spacing-2;
     white-space: nowrap;
     border-radius: 60px;
+    height: 45px;
     font-weight: 500;
     transition: $transition-base;
     border: none;
@@ -46,14 +47,15 @@
         border: 1px solid rgba(255, 255, 255, 0.2);
         
         &:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.3);
+            background-color: #F0FF9D;
+            color: $color-black;
+            border-color: rgba(255, 255, 255, 0.2);
         }
     }
     
     &--ghost {
-        background-color: transparent;
-        color: $color-gray-300;
+        background-color: $color-white;
+        color: $color-black;
         border: 1px solid rgba(255, 255, 255, 0.1);
         
         &:hover {
@@ -100,8 +102,8 @@
     
     // Sizes
     &--sm {
-        height: 38px;
-        padding: 0 $spacing-4;
+        height: 45px;
+        padding: 0.5rem $spacing-8;
         font-size: 0.8125rem;
         
         @include respond-to(sm) {
@@ -154,19 +156,19 @@
         @include respond-to(sm) {
             height: 60px;
             padding: 0 $spacing-8;
-            font-size: $font-size-lg;
+            font-size: 1.25rem;
         }
         
         @include respond-to(md) {
             height: 68px;
             padding: 0 $spacing-10;
-            font-size: $font-size-xl;
+            font-size: 32px;
         }
         
         @include respond-to(lg) {
             height: 76px;
             padding: 0 $spacing-12;
-            font-size: $font-size-2xl;
+            font-size: 32px;
         }
         
         @include respond-to(xl) {

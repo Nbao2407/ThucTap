@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const menuIcons = menuToggle.querySelectorAll('.header__menu-icon');
             if (mobileMenu.classList.contains('is-open')) {
-                menuIcons[0].style.transform = 'rotate(45deg) translateY(8px)';
+                menuIcons[0].style.transform = 'translateY(7px) rotate(45deg)';
                 menuIcons[1].style.opacity = '0';
-                menuIcons[2].style.transform = 'rotate(-45deg) translateY(-8px)';
+                menuIcons[2].style.transform = 'translateY(-7px) rotate(-45deg)';
             } else {
                 menuIcons[0].style.transform = '';
                 menuIcons[1].style.opacity = '';

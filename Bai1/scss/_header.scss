@@ -8,8 +8,8 @@
 .header {
     width: 100%;
     z-index: 1000;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
-    background-color: rgba(0, 0, 0, 0.8);
+    border-bottom: none;
+    background-color: rgba($color-black, 0.98);
     @include backdrop-blur;
     
     &--fixed {
@@ -27,6 +27,8 @@
     
     &__container {
         @include container;
+        padding: 0 24px;
+        max-width: 1200px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -60,7 +62,7 @@
         &-text {
             font-family: $font-logo;
             font-size: $font-size-xl;
-            font-weight: 600;
+            font-weight: 500;
             line-height: 1;
             
             @include respond-to(md) {
@@ -82,18 +84,23 @@
         }
         
         @include respond-to(xl) {
+            gap: 65px;
+        }
+        
+        @include respond-to(xl) {
             gap: $spacing-8;
         }
     }
     
     &__menu-link {
-        font-size: $font-size-sm;
-        color: rgba(255, 255, 255, 0.6);
+        font-size: $font-size-base;
+        color: $color-white;
         transition: $transition-base;
         padding: $spacing-2 0;
+        font-weight: 400;
         
-        @include respond-to(md) {
-            font-size: $font-size-base;
+        @include respond-to(xl) {
+            font-size: 28px;
         }
         
         &:hover {
@@ -127,7 +134,7 @@
         
         &[aria-expanded="true"] {
             .header__menu-icon:nth-child(1) {
-                transform: rotate(45deg) translate(8px, 8px);
+                transform: translateY(7px) rotate(45deg);
             }
             
             .header__menu-icon:nth-child(2) {
@@ -135,7 +142,7 @@
             }
             
             .header__menu-icon:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -7px);
+                transform: translateY(-7px) rotate(-45deg);
             }
         }
     }
@@ -150,7 +157,7 @@
     
     &__mobile-menu {
         display: none;
-        position: fixed;
+        position: relative;
         top: 60px;
         left: 0;
         right: 0;
@@ -178,14 +185,14 @@
     }
     
     &__mobile-content {
-        padding: $spacing-6 $spacing-4;
+        padding: 0 $spacing-12 $spacing-12;
         display: flex;
         flex-direction: column;
         gap: $spacing-2;
         min-height: 100%;
         
         @include respond-to(sm) {
-            padding: $spacing-8 $spacing-6;
+            padding: 0 $spacing-6 $spacing-8;
             gap: $spacing-3;
         }
     }

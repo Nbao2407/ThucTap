@@ -2,13 +2,8 @@
 @use 'mixins' as *;
 
 .faq {
-    padding: $spacing-16 0;
     background-color: $color-black;
     position: relative;
-    
-    @include respond-to(md) {
-        padding: $spacing-20 0;
-    }
     
     &__container {
         @include container;
@@ -47,6 +42,7 @@
         font-size: 1.875rem;
         font-weight: 700;
         color: $color-white;
+        padding-top: 94px;
         text-align: center;
         margin-bottom: $spacing-6;
         text-transform: uppercase;
@@ -212,17 +208,13 @@
         &-inner {
             padding-bottom: $spacing-3;
             padding-right: $spacing-6;
-            color: $color-gray-400;
-            line-height: 1.6;
-            font-size: 0.9375rem;
+            color: #A5A5A5;
+            line-height: 100%;
+            font-weight: 500;
+            font-size: 1.3rem;
             max-width: 95%;
             
-            @include respond-to(sm) {
-                font-size: $font-size-base;
-                padding-bottom: $spacing-4;
-                padding-right: $spacing-8;
-                max-width: 90%;
-            }
+           
         }
     }
 }
