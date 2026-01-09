@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react';
-import { studentService } from '../services/studentService';
 import type { Student } from '../types/student';
 import StudentTable from '../components/StudentTable';
 import StudentForm from '../components/StudentForm';
-import { MagnifyingGlassIcon, UserGroupIcon, PlusIcon, XMarkIcon, FunnelIcon } from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon, PlusIcon, XMarkIcon, FunnelIcon } from '@heroicons/react/24/outline';
 import { Pagination, PaginationContent, PaginationItem } from '../components/ui/pagination';
 import { Button } from '../components/ui/button-1';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useToast } from '../contexts/ToastContext';
+import { useAppDispatch, useAppSelector } from '../hooks/useRedux';
+import { fetchStudents, createStudent, updateStudent, deleteStudent } from '../store/slices/studentSlice';
 
 const StudentList = () => {
-    const [students, setStudents] = useState<Student[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    // Redux state
+    const dispatch = useAppDispatch();
+    const { students, loading, error } = useAppSelector((state) => state.students);
+
+    // Local UI state
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedMajor, setSelectedMajor] = useState('');
     const [selectedGender, setSelectedGender] = useState('');
@@ -28,28 +31,16 @@ const StudentList = () => {
     const [editingStudent, setEditingStudent] = useState<Student | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const fetchStudents = async () => {
-        try {
-            setLoading(true);
-            const data = await studentService.getAll();
-            const sortedData = [...data].sort((a, b) => b.id.localeCompare(a.id));
-            setStudents(sortedData);
-        } catch (err) {
-            setError('Failed to fetch data');
-        } finally {
-            setLoading(false);
-        }
-    };
+    const { showToast } = useToast();
 
     useEffect(() => {
-        fetchStudents();
-    }, []);
+        dispatch(fetchStudents());
+    }, [dispatch]);
 
     const handleDelete = async (id: string, name: string) => {
         if (window.confirm(`Bạn có chắc chắn muốn xóa sinh viên ${name}?`)) {
             try {
-                await studentService.delete(id);
-                setStudents(prev => prev.filter((s) => s.id !== id));
+                await dispatch(deleteStudent(id)).unwrap();
                 showToast(`Đã xóa sinh viên ${name}`, 'success');
             } catch (err) {
                 showToast('Xóa thất bại', 'error');
@@ -72,31 +63,17 @@ const StudentList = () => {
         setEditingStudent(null);
     };
 
-    const { showToast } = useToast();
-
     const handleSubmit = async (data: Omit<Student, 'id'>) => {
         setIsSubmitting(true);
         try {
             if (editingStudent) {
-                await studentService.update(editingStudent.id, data);
+                await dispatch(updateStudent({ id: editingStudent.id, data })).unwrap();
+                showToast('Cập nhật sinh viên thành công!', 'success');
             } else {
-                // Generate new ID pattern SVxxx
-                const svIds = students
-                    .map(s => s.id)
-                    .filter(id => /^SV\d{3}$/.test(id))
-                    .map(id => parseInt(id.replace('SV', ''), 10));
-
-                const maxId = svIds.length > 0 ? Math.max(...svIds) : 0;
-                const newId = `SV${String(maxId + 1).padStart(3, '0')}`;
-
-                await studentService.create({ ...data, id: newId } as any);
+                await dispatch(createStudent(data)).unwrap();
+                showToast('Thêm sinh viên thành công!', 'success');
                 setCurrentPage(1);
             }
-            await fetchStudents();
-            showToast(
-                editingStudent ? 'Cập nhật sinh viên thành công!' : 'Thêm sinh viên thành công!',
-                'success'
-            );
             handleCloseModal();
         } catch (error) {
             console.error('Operation failed:', error);
