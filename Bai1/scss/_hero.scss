@@ -18,11 +18,11 @@
         flex-direction: column;
         padding-top: 65px;
         max-width: 1280px;
-        gap: $spacing-8;
+        gap: $spacing-2;
         
         @include respond-to(sm) {
             padding-top: 65px;
-            gap: $spacing-10;
+            gap: $spacing-2;
         }
         
         @include respond-to(md) {
@@ -30,12 +30,12 @@
             align-items: center;
             justify-content: space-between;
             padding-top: 65px;
-            gap: $spacing-8;
+            gap: $spacing-2;
         }
         
         @include respond-to(lg) {
             padding-top: 65px;
-            gap: $spacing-12;
+            gap: $spacing-4;
         }
     }
     
@@ -172,7 +172,6 @@
         height: auto;
         object-fit: contain;
         display: block; 
-        
         &--top {
             width: 100%; 
             height: auto;

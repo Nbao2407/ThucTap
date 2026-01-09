@@ -114,6 +114,7 @@ button {
 .button--signin {
   background-color: #ffffff;
   color: #000000;
+  font-weight: 400;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .button--signin:hover {
@@ -125,6 +126,7 @@ button {
   background-color: #ffffff;
   color: #000000;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 400;
 }
 .button--ghost:hover {
   background-color: rgba(255, 255, 255, 0.05);
@@ -695,12 +697,12 @@ button {
   flex-direction: column;
   padding-top: 65px;
   max-width: 1280px;
-  gap: 2rem;
+  gap: 0.5rem;
 }
 @media (min-width: 640px) {
   .hero__container {
     padding-top: 65px;
-    gap: 2.5rem;
+    gap: 0.5rem;
   }
 }
 @media (min-width: 768px) {
@@ -709,13 +711,13 @@ button {
     align-items: center;
     justify-content: space-between;
     padding-top: 65px;
-    gap: 2rem;
+    gap: 0.5rem;
   }
 }
 @media (min-width: 1024px) {
   .hero__container {
     padding-top: 65px;
-    gap: 3rem;
+    gap: 1rem;
   }
 }
 .hero__content {

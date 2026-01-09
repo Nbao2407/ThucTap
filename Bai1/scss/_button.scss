@@ -44,6 +44,7 @@
     &--signin {
         background-color: #ffffff;
         color: $color-black;
+        font-weight: 400;
         border: 1px solid rgba(255, 255, 255, 0.2);
         
         &:hover {
@@ -57,6 +58,7 @@
         background-color: $color-white;
         color: $color-black;
         border: 1px solid rgba(255, 255, 255, 0.1);
+        font-weight: 400;
         
         &:hover {
             background-color: rgba(255, 255, 255, 0.05);
