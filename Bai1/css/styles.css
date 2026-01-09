@@ -1114,6 +1114,11 @@ button {
 .feature-card--large .feature-card__description {
   padding: 0 1.5rem 0;
 }
+@media (min-width: 1024px) {
+  .feature-card--large .feature-card__description {
+    padding: 0;
+  }
+}
 .feature-card--large .feature-card__content-left {
   padding: 0;
 }
