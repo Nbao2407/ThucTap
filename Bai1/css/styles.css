@@ -105,7 +105,7 @@ button {
 .button--primary {
   background-color: #F0FF9D;
   color: #000000;
-  font-weight: 600;
+  font-weight: 400;
 }
 .button--primary:hover {
   background-color: #E2EF8A;
@@ -163,52 +163,57 @@ button {
 }
 .button--sm {
   height: 45px;
-  padding: 0.5rem 2rem;
-  font-size: 0.8125rem;
+  padding: 8px 34px 8px 34px;
+  font-size: 1rem;
 }
 @media (min-width: 640px) {
   .button--sm {
-    height: 42px;
-    padding: 0 1.25rem;
-    font-size: 0.875rem;
+    height: 45px;
+    padding: 8px 34px 8px 34px;
+    font-size: 1.25rem;
   }
 }
 @media (min-width: 768px) {
   .button--sm {
-    height: 44px;
-    font-size: 0.875rem;
+    height: 45px;
+    width: 131px;
+    max-width: 131px;
+    padding: 8px 34px 8px 34px;
+    font-size: 21px;
   }
 }
 .button--lg {
   height: 44px;
-  padding: 0 1.5rem;
+  padding: 8px 34px 8px 34px;
   font-size: 0.9375rem;
   border-radius: 9999px;
 }
 @media (min-width: 640px) {
   .button--lg {
     height: 50px;
-    padding: 0 2rem;
+    padding: 8px 34px 8px 34px;
     font-size: 1rem;
   }
 }
 @media (min-width: 768px) {
   .button--lg {
-    height: 56px;
-    padding: 0 2.5rem;
-    font-size: 1.125rem;
+    height: 45px;
+    padding: 8px 34px 8px 34px;
+    font-size: 1.25rem;
   }
 }
 @media (min-width: 1024px) {
   .button--lg {
-    height: 60px;
-    padding: 0 3rem;
-    font-size: 1.25rem;
+    height: 34px;
+    padding: 8px 34px 8px 34px;
+    font-size: 21px;
   }
 }
 @media (min-width: 1280px) {
   .button--lg {
-    height: 64px;
+    height: 45px;
+    padding: 8px 34px 8px 34px;
+    font-size: 21px;
   }
 }
 .button--xl {
@@ -438,21 +443,20 @@ button {
 .header {
   width: 100%;
   z-index: 1000;
-  border-bottom: none;
+  border: none !important;
   background-color: rgba(0, 0, 0, 0.98);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-.header--fixed {
-  position: fixed;
-  top: 0;
+.header--relative {
+  position: relative;
 }
 .header__nav {
-  padding: 0.75rem 0;
+  padding-top: 50px;
 }
 @media (min-width: 768px) {
   .header__nav {
-    padding: 1rem 0;
+    padding-top: 50px;
   }
 }
 .header__container {
@@ -467,12 +471,11 @@ button {
 }
 @media (min-width: 768px) {
   .header__container {
-    padding: 0 1.5rem;
+    padding: 0 0;
   }
 }
 .header__container {
-  padding: 0 24px;
-  max-width: 1200px;
+  max-width: 1250px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -517,6 +520,7 @@ button {
 }
 .header__menu-center {
   display: none;
+  padding-top: 50px;
   gap: 1.5rem;
 }
 @media (min-width: 1024px) {
@@ -535,11 +539,11 @@ button {
 }
 @media (min-width: 1280px) {
   .header__menu-center {
-    gap: 2rem;
+    gap: 65px;
   }
 }
 .header__menu-link {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #ffffff;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 0.5rem 0;
@@ -683,19 +687,19 @@ button {
 }
 @media (min-width: 768px) {
   .hero__container {
-    padding: 0 1.5rem;
+    padding: 0 0;
   }
 }
 .hero__container {
   display: flex;
   flex-direction: column;
-  padding-top: 80px;
-  max-width: 1200px;
+  padding-top: 65px;
+  max-width: 1280px;
   gap: 2rem;
 }
 @media (min-width: 640px) {
   .hero__container {
-    padding-top: 90px;
+    padding-top: 65px;
     gap: 2.5rem;
   }
 }
@@ -704,13 +708,13 @@ button {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-top: 100px;
+    padding-top: 65px;
     gap: 2rem;
   }
 }
 @media (min-width: 1024px) {
   .hero__container {
-    padding-top: 120px;
+    padding-top: 65px;
     gap: 3rem;
   }
 }
@@ -877,18 +881,18 @@ button {
 }
 
 .partners {
-  padding: 3rem 0;
+  padding: 4rem 0;
   background-color: #000000;
   border-top: none;
 }
 @media (min-width: 768px) {
   .partners {
-    padding: 4rem 0;
+    padding: 5rem 0;
   }
 }
 @media (min-width: 1024px) {
   .partners {
-    padding: 5rem 0;
+    padding: 6rem 0;
   }
 }
 .partners__container {
@@ -903,7 +907,7 @@ button {
 }
 @media (min-width: 768px) {
   .partners__container {
-    padding: 0 1.5rem;
+    padding: 0 0;
   }
 }
 .partners__container {
@@ -1003,7 +1007,7 @@ button {
 }
 @media (min-width: 768px) {
   .features__container {
-    padding: 0 1.5rem;
+    padding: 0 0;
   }
 }
 .features__container {
@@ -1099,7 +1103,12 @@ button {
 }
 .feature-card--large .feature-card__title {
   padding: 1.5rem 1.5rem 0;
-  margin-bottom: 12px;
+  margin-bottom: 30px;
+}
+@media (min-width: 1024px) {
+  .feature-card--large .feature-card__title {
+    padding: 0;
+  }
 }
 @media (min-width: 768px) {
   .feature-card--large .feature-card__title {
@@ -1113,6 +1122,11 @@ button {
 }
 .feature-card--large .feature-card__description {
   padding: 0 1.5rem 0;
+}
+@media (min-width: 768px) {
+  .feature-card--large .feature-card__description {
+    padding: 0;
+  }
 }
 @media (min-width: 1024px) {
   .feature-card--large .feature-card__description {
@@ -1135,7 +1149,7 @@ button {
 @media (min-width: 1024px) {
   .feature-card--large .feature-card__content-left {
     flex: 1;
-    padding: 46px 47px 37px 44px;
+    padding: 40px;
   }
 }
 .feature-card--large .feature-card__visual {
@@ -1249,7 +1263,7 @@ button {
 @media (min-width: 768px) {
   .feature-card__title {
     font-size: 1.5rem;
-    padding: 3rem;
+    padding-top: 1.5rem;
   }
 }
 @media (min-width: 1024px) {
@@ -1262,13 +1276,13 @@ button {
 .feature-card__description {
   font-size: 1rem;
   color: #ffffff;
-  line-height: 1.5;
-  padding: 0 0 0 0;
+  line-height: 100%;
+  padding: 0;
   width: 100%;
 }
 @media (min-width: 768px) {
   .feature-card__description {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 @media (min-width: 1024px) {
@@ -1276,10 +1290,8 @@ button {
     font-size: 30.1px;
     line-height: 100%;
     padding: 0;
+    padding: 0;
   }
-}
-.feature-card__description {
-  letter-spacing: 0%;
 }
 
 .feature-text-block {
@@ -1436,7 +1448,7 @@ button {
 }
 @media (min-width: 768px) {
   .faq__container {
-    padding: 0 1.5rem;
+    padding: 0 0;
   }
 }
 @media (min-width: 1024px) {
@@ -1659,7 +1671,7 @@ button {
 }
 @media (min-width: 768px) {
   .cta__container {
-    padding: 0 1.5rem;
+    padding: 0 0;
   }
 }
 .cta__content {
@@ -1804,7 +1816,7 @@ button {
 }
 @media (min-width: 768px) {
   .footer__container {
-    padding: 0 1.5rem;
+    padding: 0 0;
   }
 }
 .footer__container {

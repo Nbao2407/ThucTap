@@ -6,16 +6,16 @@
 @use 'mixins' as *;
 
 .partners {
-    padding: $spacing-12 0;
+    padding: $spacing-16 0;
     background-color: $color-black;
     border-top: none;
     
     @include respond-to(md) {
-        padding: $spacing-16 0;
+        padding: $spacing-20 0;
     }
     
     @include respond-to(lg) {
-        padding: $spacing-20 0;
+        padding: $spacing-24 0;
     }
     
     &__container {

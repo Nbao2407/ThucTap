@@ -95,7 +95,10 @@
 
         .feature-card__title {
            padding: $spacing-6 $spacing-6 0;
-           margin-bottom: 12px;
+           margin-bottom: 30px;
+           @include respond-to(lg) {
+            padding: 0;
+           }
             @include respond-to(md) {
                 padding: 0; 
             }
@@ -106,6 +109,9 @@
 
         .feature-card__description {
              padding: 0 $spacing-6 0;
+             @include respond-to(md) {
+                padding: 0;
+             }
              @include respond-to(lg) {
                 padding: 0;
             }
@@ -125,7 +131,7 @@
             
             @include respond-to(lg) {
                 flex: 1;
-                padding: 46px 47px 37px 44px;
+                padding: 40px;
             }
         }
         
@@ -234,7 +240,7 @@
       
         @include respond-to(md) {
             font-size: 1.5rem;
-            padding: $spacing-12;
+            padding-top: $spacing-6;
         }
         
         @include respond-to(lg) {
@@ -246,20 +252,20 @@
     &__description {
         font-size: 1rem; 
         color: $color-white;
-        line-height: 1.5;
-         padding: 0 0  0 0;
+        line-height: 100%;
+        padding: 0;
         width: 100%;
         
         @include respond-to(md) {
-            font-size: 1rem;
+            font-size: 1.5rem;
         }
         
         @include respond-to(lg) {
             font-size: 30.1px; 
             line-height: 100%;
             padding: 0;
+            padding: 0;
         }
-        letter-spacing: 0%;
     }
 }
 

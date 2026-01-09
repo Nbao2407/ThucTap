@@ -8,27 +8,25 @@
 .header {
     width: 100%;
     z-index: 1000;
-    border-bottom: none;
+    border: none !important;
     background-color: rgba($color-black, 0.98);
     @include backdrop-blur;
     
-    &--fixed {
-        position: fixed;
-        top: 0;
+    &--relative {
+        position: relative;
     }
     
     &__nav {
-        padding: $spacing-3 0;
+        padding-top: 50px ;
         
         @include respond-to(md) {
-            padding: $spacing-4 0;
+            padding-top: 50px;
         }
     }
     
     &__container {
         @include container;
-        padding: 0 24px;
-        max-width: 1200px;
+        max-width: 1250px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -73,6 +71,7 @@
     
     &__menu-center {
         display: none;
+        padding-top:50px ;
         gap: $spacing-6;
         
         @include respond-to(lg) {
@@ -88,12 +87,12 @@
         }
         
         @include respond-to(xl) {
-            gap: $spacing-8;
+            gap: 65px;
         }
     }
     
     &__menu-link {
-        font-size: $font-size-base;
+        font-size: $font-size-2xl;
         color: $color-white;
         transition: $transition-base;
         padding: $spacing-2 0;

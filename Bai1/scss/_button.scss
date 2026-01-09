@@ -33,7 +33,7 @@
     &--primary {
         background-color: $color-brand-primary;
         color: $color-black;
-        font-weight: 600;
+        font-weight: 400;
         
         &:hover {
             background-color: $color-brand-primary-hover;
@@ -103,47 +103,52 @@
     // Sizes
     &--sm {
         height: 45px;
-        padding: 0.5rem $spacing-8;
-        font-size: 0.8125rem;
+        padding: 8px 34px 8px 34px;
+        font-size: $font-size-base;
         
         @include respond-to(sm) {
-            height: 42px;
-            padding: 0 $spacing-5;
-            font-size: 0.875rem;
+            height: 45px;
+            padding: 8px 34px 8px 34px;
+            font-size: $font-size-xl;
         }
         
         @include respond-to(md) {
-            height: 44px;
-            font-size: $font-size-sm;
+            height: 45px;
+            width: 131px;
+            max-width: 131px;
+            padding: 8px 34px 8px 34px;
+            font-size: 21px;
         }
     }
     
     &--lg {
         height: 44px;
-        padding: 0 $spacing-6;
+        padding: 8px 34px 8px 34px;
         font-size: 0.9375rem;
         border-radius: $radius-full;
         
         @include respond-to(sm) {
             height: 50px;
-            padding: 0 $spacing-8;
+            padding: 8px 34px 8px 34px;
             font-size: 1rem;
         }
         
         @include respond-to(md) {
-            height: 56px;
-            padding: 0 $spacing-10;
-            font-size: $font-size-lg;
-        }
-        
-        @include respond-to(lg) {
-            height: 60px;
-            padding: 0 $spacing-12;
+            height: 45px;
+            padding: 8px 34px 8px 34px;
             font-size: $font-size-xl;
         }
         
+        @include respond-to(lg) {
+            height: 34px;
+            padding: 8px 34px 8px 34px;
+            font-size: 21px;
+        }
+        
         @include respond-to(xl) {
-            height: 64px;
+            height: 45px;
+            padding: 8px 34px 8px 34px;
+            font-size: 21px;
         }
     }
     

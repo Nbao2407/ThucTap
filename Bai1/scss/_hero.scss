@@ -16,12 +16,12 @@
         @include container;
         display: flex;
         flex-direction: column;
-        padding-top: 80px;
-        max-width: 1200px;
+        padding-top: 65px;
+        max-width: 1280px;
         gap: $spacing-8;
         
         @include respond-to(sm) {
-            padding-top: 90px;
+            padding-top: 65px;
             gap: $spacing-10;
         }
         
@@ -29,12 +29,12 @@
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            padding-top: 100px;
+            padding-top: 65px;
             gap: $spacing-8;
         }
         
         @include respond-to(lg) {
-            padding-top: 120px;
+            padding-top: 65px;
             gap: $spacing-12;
         }
     }
