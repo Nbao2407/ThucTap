@@ -21,15 +21,16 @@
         gap: $spacing-2;
         
         @include respond-to(sm) {
-            padding-top: 65px;
+            padding: 65px $spacing-6 0 $spacing-6;
             gap: $spacing-2;
+
         }
         
         @include respond-to(md) {
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            padding-top: 65px;
+            padding: 65px $spacing-6 0 $spacing-6;
             gap: $spacing-2;
         }
         
@@ -175,17 +176,10 @@
         &--top {
             width: 100%; 
             height: auto;
-            border-radius: $radius-lg;
         }
         
         &--bottom {
             width: 100%;
-            border-radius: $radius-lg;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.02);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            
             @include respond-to(md) {
                 border-radius: $radius-xl;
             }

@@ -56,12 +56,20 @@
 
   &__quote {
     color: #FFFFFF;
-    font-size: 1.5rem;
+    font-size: $font-size-2xl;
     line-height: 100%;
     max-width: 300px;
     max-height: 140px;
     margin-bottom: $spacing-8;
     font-weight: 400;
+    @include respond-to(sm) {
+        font-size: $font-size-3xl;
+        max-width: 500px;
+    }
+    @include respond-to(md) {
+        font-size: 21px;
+        max-width: 250px;
+    }
   }
 
   &__author {
