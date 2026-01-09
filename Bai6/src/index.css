@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+
+  .headline-large {
+    font-size: 32px;
+    line-height: 130%;
+  }
+
+  .headline-medium {
+    font-size: 20px;
+    line-height: 130%;
+  }
+
+  .body-large {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .body-small {
+    font-size: 12px;
+    line-height: 150%;
+  }
+}
