@@ -55,12 +55,12 @@ export default function Dashboard() {
                             </div>
 
                             {/* Revenue Chart */}
-                            <div className="flex-1">
+                            <div>
                                 <RevenueChart />
                             </div>
 
                             {/* Client Transaction Table */}
-                            <div className="flex-1">
+                            <div>
                                 <ClientTransactionTable />
                             </div>
                         </div>

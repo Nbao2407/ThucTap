@@ -198,6 +198,19 @@ export default function ClientTransactionTable() {
         },
     });
 
+    const getColumnClasses = (columnId: string) => {
+        switch (columnId) {
+            case "id":
+                return "hidden lg:table-cell";
+            case "date":
+                return "hidden md:table-cell";
+            case "type":
+                return "hidden sm:table-cell";
+            default:
+                return "";
+        }
+    };
+
     return (
         <div className="bg-white p-6 rounded-2xl shadow-sm shadow-gray-100">
             <div className="flex justify-between items-center mb-6">
@@ -219,8 +232,8 @@ export default function ClientTransactionTable() {
                 onAdd={handleAddTransaction}
             />
 
-            <div className="overflow-hidden">
-                <Table className="table-fixed">
+            <div className="overflow-x-auto">
+                <Table className="table-fixed min-w-[800px] lg:min-w-0">
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id} className="hover:bg-transparent border-b-0">
@@ -229,13 +242,17 @@ export default function ClientTransactionTable() {
                                         <TableHead
                                             key={header.id}
                                             style={{ width: `${header.getSize()}px` }}
-                                            className="h-11 text-gray-400 font-medium border-b-0"
+                                            className={cn(
+                                                "h-11 text-gray-400 font-medium border-b-0",
+                                                getColumnClasses(header.column.id)
+                                            )}
                                         >
                                             {header.isPlaceholder ? null : header.column.getCanSort() ? (
                                                 <div
                                                     className={cn(
                                                         header.column.getCanSort() &&
                                                         "flex h-full cursor-pointer select-none items-center gap-2",
+                                                        header.column.id === 'actions' && "justify-center"
                                                     )}
                                                     onClick={header.column.getToggleSortingHandler()}
                                                 >
@@ -271,7 +288,7 @@ export default function ClientTransactionTable() {
                             table.getRowModel().rows.map((row) => (
                                 <TableRow key={row.id} data-state={row.getIsSelected() && "selected"} className="border-b-gray-50 hover:bg-gray-50/50">
                                     {row.getVisibleCells().map((cell) => (
-                                        <TableCell key={cell.id} className="py-4">
+                                        <TableCell key={cell.id} className={cn("py-4", getColumnClasses(cell.column.id))}>
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </TableCell>
                                     ))}
