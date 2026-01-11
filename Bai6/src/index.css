@@ -1,6 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-steel-blue-50: #f4f7fa;
+  --color-steel-blue-100: #e3eaf2;
+  --color-steel-blue-200: #cad6e6;
+  --color-steel-blue-300: #a4bad4;
+  --color-steel-blue-400: #789bc0;
+  --color-steel-blue-500: #577fae;
+  --color-steel-blue-600: #436691;
+  --color-steel-blue-700: #375276;
+  --color-steel-blue-800: #304561;
+  --color-steel-blue-900: #2b3b51;
+  --color-steel-blue-950: #1b2533;
+}
 
 @layer base {
   :root {
